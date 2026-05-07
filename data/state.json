@@ -143,6 +143,51 @@
       "jurisdiction": "HK",
       "importance": 4,
       "posted_at": "2026-05-07T15:44:25.286221+00:00"
+    },
+    {
+      "hash": "43952b496493d2b3",
+      "url": "https://decrypt.co/367125/amazon-coinbase-stripe-ai-agents-pay-stablecoins",
+      "headline": "Amazon AWS partners with Coinbase and Stripe to enable AI agents to pay via USDC",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-07T17:24:07.290620+00:00"
+    },
+    {
+      "hash": "167f3dbc5689e5c7",
+      "url": "https://decrypt.co/367094/kraken-parent-acquires-asian-stablecoin-firm-reap-600-million",
+      "headline": "Kraken parent acquires Asian stablecoin firm Reap for $600M",
+      "category": "crypto",
+      "jurisdiction": "HK",
+      "importance": 4,
+      "posted_at": "2026-05-07T17:24:07.290661+00:00"
+    },
+    {
+      "hash": "6491b9ef1626cbcf",
+      "url": "https://www.coindesk.com/markets/2026/05/07/bitwise-expands-into-tokenized-funds-with-planned-takeover-of-superstate-s-uscc-fund",
+      "headline": "Bitwise acquires Superstate's $267M tokenized carry fund",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290672+00:00"
+    },
+    {
+      "hash": "015da3df5bbd525a",
+      "url": "https://decrypt.co/367108/prediction-market-startup-kalshi-boosts-valuation-22-billion",
+      "headline": "Prediction market Kalshi raises $1B, valued at $22B",
+      "category": "other",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290680+00:00"
+    },
+    {
+      "hash": "504343c7d2310239",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-spearheads-global-action-stop-illegal-finfluencers",
+      "headline": "FCA leads global crackdown on illegal financial influencers",
+      "category": "regulator_action",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290688+00:00"
     }
   ],
   "weekly_buffer": [
@@ -296,9 +341,59 @@
       "jurisdiction": "HK",
       "importance": 4,
       "posted_at": "2026-05-07T15:44:25.286248+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367125/amazon-coinbase-stripe-ai-agents-pay-stablecoins",
+      "headline": "Amazon AWS partners with Coinbase and Stripe to enable AI agents to pay via USDC",
+      "summary": "Amazon Web Services совместно с Coinbase и Stripe запустила систему, позволяющую ИИ-агентам осуществлять платежи через стейблкоин USDC за доступ к API, данным и онлайн-сервисам. Это первый масштабный случай интеграции стейблкоинов в платёжную инфраструктуру крупнейшего облачного провайдера. Запуск может существенно ускорить коммерческое применение стейблкоинов в B2B-расчётах.",
+      "post_text": "🇺🇸 Amazon AWS интегрировала стейблкоин-платежи прямо в инфраструктуру для ИИ-агентов — и это уже не концепт.\n\nAWS совместно с Coinbase и Stripe запустила систему, позволяющую ИИ-агентам автономно оплачивать доступ к API, данным и онлайн-сервисам через USDC. Это первый случай, когда стейблкоин встроен в платёжный слой крупнейшего облачного провайдера в роли расчётного инструмента для машинных транзакций.\n\n⚠️ <b>На что обратить внимание:</b>\n— Транзакции инициируются ИИ-агентами без участия человека — классические модели KYC/CDD к таким плательщикам не применимы напрямую\n— USDC как расчётный актив означает, что каждая платёжная цепочка проходит через Circle и on-chain инфраструктуру — со всеми вытекающими требованиями Travel Rule\n— Coinbase и Stripe выступают процессинговым слоем: комплаенс-ответственность распределяется между несколькими лицензированными игроками\n— B2B-сегмент получает прецедент массового применения стейблкоинов вне розничных расчётов\n\nДля VASP и PSP, работающих с корпоративными клиентами, это сигнал: машинные платежи через стейблкоины потребуют отдельных политик мониторинга транзакций и пересмотра критериев определения бенефициарного владельца в контексте агентских систем.\n\nПодробнее в <a href=\"https://www.coindesk.com/business/2026/05/07/amazon-rolls-out-ai-agent-stablecoin-payments-platform-with-coinbase-and-stripe\">материале CoinDesk</a> и <a href=\"https://www.theblock.co/post/400421/aws-taps-coinbase-and-stripe-to-power-usdc-payments-for-ai-agents\">репортаже The Block</a>.\n\n#stablecoins #AIpayments #VASP 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-07T17:24:07.290650+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367094/kraken-parent-acquires-asian-stablecoin-firm-reap-600-million",
+      "headline": "Kraken parent acquires Asian stablecoin firm Reap for $600M",
+      "summary": "Материнская компания Kraken приобретает азиатскую стейблкоин-компанию Reap за $600 млн — крупнейшая сделка в истории биржи. Покупка направлена на выход в сегмент трансграничных платежей в Азии через стейблкоин-инфраструктуру. Сделка усиливает позиции Kraken в регулируемом VASP/платёжном пространстве Азиатско-Тихоокеанского региона.",
+      "post_text": "🇭🇰 $600 млн за стейблкоин-инфраструктуру — Kraken делает крупнейшую ставку на азиатские платежи.\n\nМатеринская компания Kraken — Payward — приобретает гонконгскую стейблкоин-компанию Reap за $600 млн. Это крупнейшая сделка в истории биржи, направленная на выход в сегмент трансграничных платежей в Азиатско-Тихоокеанском регионе через готовую платёжную инфраструктуру.\n\n⚠️ <b>На что обратить внимание:</b>\n— Reap работает в регулируемом пространстве Гонконга, где режим лицензирования VASP и платёжных операторов активно ужесточается\n— Сделка усиливает присутствие Kraken в регулируемом VASP/PSP-сегменте АТР, где требования AML/CFT и лицензионный порог существенно выше, чем в большинстве других юрисдикций\n— Интеграция стейблкоин-инфраструктуры в биржевую группу потребует переоценки compliance-архитектуры объединённой структуры: расчёты, KYC-потоки, санкционный скрининг\n\nДля compliance-команд в VASP и PSP-пространстве АТР это сигнал: крупные игроки наращивают регулируемую инфраструктуру в Гонконге, и регуляторное давление на стейблкоин-платежи в регионе будет только возрастать.\n\nПодробнее в <a href=\"https://decrypt.co/367094/kraken-parent-acquires-asian-stablecoin-firm-reap-600-million\">материале Decrypt</a> и <a href=\"https://www.theblock.co/post/400407/kraken-parent-payward-to-acquire-hong-kong-stablecoin-firm-reap-for-600-million\">репортаже The Block</a>.\n\n#crypto #stablecoin #VASP #payments 🇭🇰",
+      "category": "crypto",
+      "jurisdiction": "HK",
+      "importance": 4,
+      "posted_at": "2026-05-07T17:24:07.290666+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/05/07/bitwise-expands-into-tokenized-funds-with-planned-takeover-of-superstate-s-uscc-fund",
+      "headline": "Bitwise acquires Superstate's $267M tokenized carry fund",
+      "summary": "Компания Bitwise поглощает фонд токенизированных активов Superstate объёмом 267 млн долларов, выходя на рынок токенизации реальных активов. Сделка отражает растущий интерес институциональных игроков к токенизированным финансовым инструментам. Регуляторные аспекты токенизации фондов остаются в поле внимания надзорных органов.",
+      "post_text": "🇺🇸 Токенизированные фонды набирают вес: Bitwise поглощает $267M-фонд Superstate.\n\nС 1 июня Bitwise берёт под управление Superstate Crypto Carry Fund (тикер USCC), переименовывая его в Bitwise Crypto Carry Fund. Инфраструктура Superstate при этом остаётся — токен-контракты, блокчейн-адреса и тикер USCC для существующих инвесторов не меняются.\n\n📌 <b>Детали сделки:</b>\n— USCC реализует стратегию cash-and-carry: заработок на спреде между спот-ценами и фьючерсами в условиях бычьего рынка\n— Более $100 млн из активов фонда используется как залог в DeFi-протоколах (Aave, Kamino)\n— Bitwise управляет $11 млрд в криптоактивах через ETF и частные фонды — для компании это первый выход в токенизированные фонды\n— Superstate переориентируется на платформу FundOS для токенизации фондовой инфраструктуры\n— Рынок токенизированных реальных активов превысил $30 млрд глобально; токенизированные US Treasuries — более $15 млрд\n\nКомплаенс-командам в сегменте токенизированных активов стоит отслеживать, как регуляторы США будут квалифицировать подобные структуры: фонды с on-chain токенами и DeFi-коллатералом пока остаются в серой зоне с точки зрения требований к квалифицированным инвесторам и раскрытию информации.\n\nПодробнее в <a href=\"https://www.coindesk.com/markets/2026/05/07/bitwise-expands-into-tokenized-funds-with-planned-takeover-of-superstate-s-uscc-fund\">материале CoinDesk</a>.\n\n#tokenization #RWA #crypto 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290675+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367108/prediction-market-startup-kalshi-boosts-valuation-22-billion",
+      "headline": "Prediction market Kalshi raises $1B, valued at $22B",
+      "summary": "Американская платформа предсказательных рынков Kalshi завершила раунд Series F на $1 млрд, удвоив свою оценку до $22 млрд за пять месяцев. Компания продолжает активно расти на фоне увеличения институционального спроса. Kalshi работает в регулируемом пространстве CFTC и граничит с игорным сектором.",
+      "post_text": "🇺🇸 Предсказательный рынок — уже не нишевая история: Kalshi поднял $1 млрд при оценке $22 млрд.\n\nАмериканская платформа Kalshi завершила раунд Series F на $1 млрд, удвоив оценку за пять месяцев на фоне роста институционального спроса. Компания работает под надзором CFTC — в регулируемом, но пограничном с игорным сектором пространстве.\n\n⚠️ <b>На что обратить внимание:</b>\n— Kalshi регулируется как деривативная биржа (DCM) под CFTC, а не как gambling-оператор, — это принципиальное разграничение для compliance\n— Рост институционального капитала в prediction markets означает усиление scrutiny со стороны регуляторов\n— Пограничный характер продукта (ставки на события) создаёт повышенные риски в части AML/KYC и классификации клиентов\n— Для партнёров и контрагентов Kalshi стоит актуализировать оценку риска: масштаб платформы вырос кратно\n\nПлатформам и compliance-командам, взаимодействующим с prediction markets или рассматривающим их как аналогию для собственных продуктов, стоит учитывать: регуляторная рамка CFTC не снимает вопросов по AML и клиентской классификации — особенно при работе с институциональными участниками.\n\nПодробнее в <a href=\"https://www.coindesk.com/business/2026/05/07/kalshi-confirms-usd1-billion-raise-at-usd22-billion-valuation-amid-prediction-market-boom\">материале CoinDesk</a> и <a href=\"https://www.pymnts.com/news/fintech-investments/2026/kalshi-reaches-22-billion-dollar-valuation-amid-increasing-institutional-demand/\">репортаже PYMNTS</a>.\n\n#predictionmarkets #CFTC #AML 🇺🇸",
+      "category": "other",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290684+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/press-releases/fca-spearheads-global-action-stop-illegal-finfluencers",
+      "headline": "FCA leads global crackdown on illegal financial influencers",
+      "summary": "FCA возглавила международную операцию против нелегальных финансовых инфлюенсеров при участии 17 регуляторов. В Великобритании получено признание вины от участника реалити-шоу Аарона Чалмерса за незаконное продвижение финансовых продуктов в соцсетях, возбуждены уголовные дела ещё против двух лиц. Акция включала правоприменительные меры, информационные кампании и образовательные программы.",
+      "post_text": "🇬🇧 FCA провела международную операцию против нелегальных финансовых инфлюенсеров — и масштаб впечатляет.\n\nНа неделе действий, стартовавшей 20 апреля 2026 года, к FCA присоединились 17 регуляторов из 15 юрисдикций — от MAS и ASIC до ЦБ Ирландии и SEBI.\n\n📌 <b>Что сделала FCA в Великобритании:</b>\n— Получила признание вины от участника реалити-шоу «Geordie Shore» Аарона Чалмерса за незаконное продвижение финансовых продуктов в соцсетях\n— Возбудила уголовные дела ещё против двух лиц по аналогичным составам\n— Направила 4 предупредительных письма подозреваемым в несанкционированных промоакциях\n— Выпустила 34 предупреждения против неавторизованных лиц и компаний\n— Направила 120 запросов на удаление аккаунтов в соцсетях\n— Выявила 1 267 нелегальных финансовых объявлений, охвативших минимум 2,3 млн британских аккаунтов; 66% из них — от лиц, уже фигурирующих в Warning List FCA\n\n⚠️ <b>На что обратить внимание:</b>\n— Данные по охвату и рекламным материалам относятся исключительно к платформам Meta\n— FCA прямо указывает, что соцсети не соблюдают собственные политики в отношении нелицензированных финансовых промоакций\n\nКомплаенс-командам финтех-компаний и маркетинговым подразделениям стоит пересмотреть любые партнёрства с инфлюенсерами: FCA явно переходит от предупреждений к уголовному преследованию, а координация с иностранными регуляторами означает, что трансграничные схемы больше не дают защиты.\n\nПодробнее в <a href=\"https://www.fca.org.uk/news/press-releases/fca-spearheads-global-action-stop-illegal-finfluencers\">пресс-релизе FCA</a>.\n\n#finfluencer #enforcement #financialpromotion 🇬🇧",
+      "category": "regulator_action",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-07T17:24:07.290691+00:00"
     }
   ],
   "last_digest_morning": "",
-  "last_digest_evening": "",
+  "last_digest_evening": "2026-05-07",
   "last_weekly": ""
 }
