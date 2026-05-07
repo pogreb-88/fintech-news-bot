@@ -16,7 +16,11 @@ def send_message(text: str) -> bool:
         "chat_id": chat_id,
         "text": text,
         "parse_mode": "HTML",
-        "disable_web_page_preview": True,
+        "link_preview_options": {
+            "is_disabled": False,
+            "prefer_large_media": True,
+            "show_above_text": False,
+        },
     }
     try:
         r = requests.post(url, json=payload, timeout=20)
