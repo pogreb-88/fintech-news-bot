@@ -5,10 +5,16 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 
 import feedparser
+import requests
 
 from .sources import SOURCES, domain_of
 
 log = logging.getLogger(__name__)
+
+UA = (
+    "Mozilla/5.0 (compatible; fintech-news-bot/1.0; "
+    "+https://github.com/pogreb-88/fintech-news-bot)"
+)
 
 
 def _parse_date(entry) -> datetime | None:
@@ -36,9 +42,17 @@ def fetch_all(max_age_hours: int = 24) -> list[dict]:
     for src in SOURCES:
         try:
             log.info("Fetching %s", src["name"])
-            feed = feedparser.parse(src["url"], request_headers={
-                "User-Agent": "fintech-news-bot/1.0",
-            })
+            try:
+                r = requests.get(
+                    src["url"],
+                    headers={"User-Agent": UA, "Accept": "application/rss+xml, application/xml, text/xml, */*"},
+                    timeout=20,
+                )
+                r.raise_for_status()
+                feed = feedparser.parse(r.content)
+            except Exception as e:
+                log.warning("Fetch error for %s: %s", src["name"], e)
+                continue
             if feed.bozo and not feed.entries:
                 log.warning("Failed to parse %s: %s", src["name"], feed.bozo_exception)
                 continue

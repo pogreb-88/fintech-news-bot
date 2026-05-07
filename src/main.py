@@ -23,12 +23,15 @@ log = logging.getLogger("main")
 
 
 def _check_env() -> None:
-    missing = [
-        k for k in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHANNEL_ID", "ANTHROPIC_API_KEY")
-        if not os.environ.get(k)
-    ]
-    if missing:
-        sys.exit(f"Missing env vars: {', '.join(missing)}")
+    """Validate and trim required env vars (whitespace from Secrets paste is a real issue)."""
+    for k in ("TELEGRAM_BOT_TOKEN", "TELEGRAM_CHANNEL_ID", "ANTHROPIC_API_KEY"):
+        raw = os.environ.get(k, "")
+        trimmed = raw.strip()
+        if not trimmed:
+            sys.exit(f"Missing env var: {k}")
+        if trimmed != raw:
+            log.warning("%s had surrounding whitespace, trimmed", k)
+            os.environ[k] = trimmed
 
 
 def run_digest(max_age_hours: int = 12, top_n: int = 7) -> None:
