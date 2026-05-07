@@ -1,12 +1,11 @@
 """
-Cross-source verification.
+Cluster items by underlying event, drop unverifiable single-source non-regulator items.
 
-Strategy: ask Claude to cluster items by underlying real-world event,
-then per cluster:
-  - count distinct source_domains
-  - regulator domain counts as authoritative (auto-verified if regulator + any press)
-  - 2+ independent press domains also = verified
-  - otherwise = unverified (⚠️)
+After verify():
+- Each remaining item has supporting_sources (1-N)
+- Items where the only source is press AND there's no corroboration are dropped
+  (single-source unverified content not posted, per channel policy)
+- Regulator-only single sources are kept (regulator is authoritative)
 """
 import json
 import logging
@@ -18,11 +17,10 @@ from anthropic import Anthropic
 log = logging.getLogger(__name__)
 MODEL = "claude-sonnet-4-6"
 
-CLUSTER_PROMPT = """You will be given a list of news items, each with an id, headline, \
-and source. Group items that describe the SAME underlying real-world event.
+CLUSTER_PROMPT = """You will be given a list of news items, each with id, headline, \
+and source. Group items that describe the SAME underlying real-world event \
+(same incident, same announcement, same regulatory action, same fine).
 
-Two items belong to the same cluster ONLY if they refer to the same incident, \
-the same announcement, the same regulatory action, the same fine, etc. \
 Generic topical similarity is NOT enough.
 
 Return JSON array of clusters: [{"event": "<short label>", "ids": [<id>, ...]}].
@@ -46,7 +44,8 @@ def _cluster(items: list[dict]) -> list[list[int]]:
     if len(items) <= 1:
         return [[i] for i in range(len(items))]
 
-    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    client = Anthropic(api_key=api_key)
     payload = [
         {"id": i, "headline": it["english_headline"], "source": it["source_name"]}
         for i, it in enumerate(items)
@@ -71,7 +70,6 @@ def _cluster(items: list[dict]) -> list[list[int]]:
             if ids:
                 result.append(ids)
                 seen.update(ids)
-        # ensure every item is somewhere
         for i in range(len(items)):
             if i not in seen:
                 result.append([i])
@@ -82,15 +80,13 @@ def _cluster(items: list[dict]) -> list[list[int]]:
 
 
 def verify(items: list[dict]) -> list[dict]:
-    """
-    For each item set: verified (bool), supporting_sources (list of source names).
-    Picks one representative per cluster (highest importance, prefer regulator).
-    """
+    """Returns items that pass the source-quality bar. Drops unverifiable singletons."""
     if not items:
         return []
 
     clusters = _cluster(items)
     out: list[dict] = []
+    dropped = 0
 
     for cluster_ids in clusters:
         cluster = [items[i] for i in cluster_ids]
@@ -98,9 +94,11 @@ def verify(items: list[dict]) -> list[dict]:
         has_regulator = any(it["source_type"] == "regulator" for it in cluster)
         independent_count = len(domains)
 
-        verified = (has_regulator and independent_count >= 2) or independent_count >= 2
+        # Drop policy: single-source AND non-regulator => not posted
+        if independent_count < 2 and not has_regulator:
+            dropped += 1
+            continue
 
-        # Pick representative: regulator first, then highest importance
         cluster.sort(
             key=lambda it: (
                 0 if it["source_type"] == "regulator" else 1,
@@ -109,11 +107,12 @@ def verify(items: list[dict]) -> list[dict]:
             )
         )
         rep = dict(cluster[0])
-        rep["verified"] = verified
         rep["supporting_sources"] = [
-            {"name": it["source_name"], "url": it["url"]} for it in cluster
+            {"name": it["source_name"], "url": it["url"], "type": it["source_type"]}
+            for it in cluster
         ]
         out.append(rep)
 
-    log.info("Verified: %d clusters from %d items", len(out), len(items))
+    log.info("Verified: %d clusters kept, %d dropped (single-source unverified)",
+             len(out), dropped)
     return out

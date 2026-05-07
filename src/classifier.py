@@ -1,4 +1,4 @@
-"""Claude-based filter, classifier, summarizer."""
+"""Stage-1 filter: cheap relevance + category + importance + jurisdiction."""
 import json
 import logging
 import os
@@ -13,18 +13,18 @@ MODEL = "claude-sonnet-4-6"
 MAX_BATCH = 12
 
 CATEGORIES = [
-    "crypto",          # crypto/VASP/CASP, exchanges, stablecoins, tokens
-    "payments",        # EMI, PSP, PI, MSB, money transmitters, BaaS
-    "gambling",        # iGaming, gambling, sportsbook, payment to gambling
-    "adult_psp",       # adult / nutra / high-risk merchant payments
-    "sanctions",       # OFAC, EU, UK sanctions
-    "aml",             # AML/CTF enforcement, fines, programme failures
-    "regulator_action",# licence revocations/grants, MoUs, supervisory actions
-    "other",
+    "crypto", "payments", "gambling", "adult_psp",
+    "sanctions", "aml", "regulator_action", "other",
 ]
 
-SYSTEM_PROMPT = f"""You are filtering financial news for a high-risk fintech compliance \
-professional based in the UAE. Topics of interest:
+JURISDICTIONS = [
+    "UK", "US", "EU", "AE", "SG", "DE", "FR", "CY", "MT", "PL", "PT",
+    "LT", "IE", "IT", "NL", "ES", "CH", "RU", "CN", "JP", "BR", "CA",
+    "AU", "HK", "ZA", "GLOBAL",
+]
+
+SYSTEM_PROMPT = f"""You filter financial news for a high-risk fintech compliance \
+audience. Topics of interest:
 - crypto / VASP / CASP / stablecoins
 - EMI / PSP / PI / MSB / money transmitters / BaaS
 - gambling / iGaming
@@ -33,15 +33,18 @@ professional based in the UAE. Topics of interest:
 - AML/CTF enforcement, fines, programme deficiencies
 - regulator actions (licence revocations, grants, supervisory orders)
 
-For each item return JSON with keys:
+For each item return JSON with:
 - id (echo input id)
-- relevant (bool): true ONLY if the story directly concerns one of the topics above
+- relevant (bool): true ONLY if directly concerns the topics above
 - category (one of: {', '.join(CATEGORIES)})
 - importance (1-5): 5 = major regulator action, large fine, sanctions package, \
 licence revocation; 4 = significant policy change or major company event; \
 3 = notable enforcement or filing; 2 = routine but useful; 1 = peripheral
-- russian_summary (2-3 sentences in clear Russian — no fluff)
+- jurisdiction (one of: {', '.join(JURISDICTIONS)}): primary jurisdiction the \
+story concerns. Use GLOBAL for cross-border / multi-jurisdictional / FATF / \
+international standards.
 - english_headline (concise English, <= 90 chars)
+- russian_summary (2-3 sentences in clear Russian, factual, no fluff)
 
 Return a JSON array only — no prose."""
 
@@ -65,14 +68,10 @@ def _extract_json(text: str):
 
 
 def classify(items: list[dict]) -> list[dict]:
-    """
-    Annotate items with relevant/category/importance/summaries.
-    Drops irrelevant ones.
-    """
     if not items:
         return []
 
-    api_key = os.environ.get("ANTHROPIC_API_KEY")
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not api_key:
         raise RuntimeError("ANTHROPIC_API_KEY not set")
     client = Anthropic(api_key=api_key)
@@ -114,10 +113,14 @@ def classify(items: list[dict]) -> list[dict]:
             r = by_id.get(batch_start + i)
             if not r or not r.get("relevant"):
                 continue
+            jur = r.get("jurisdiction", "GLOBAL")
+            if jur not in JURISDICTIONS:
+                jur = "GLOBAL"
             annotated.append({
                 **it,
                 "category": r.get("category", "other"),
                 "importance": int(r.get("importance", 0)),
+                "jurisdiction": jur,
                 "russian_summary": r.get("russian_summary", "").strip(),
                 "english_headline": r.get("english_headline", it["title"]).strip(),
             })

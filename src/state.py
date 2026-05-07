@@ -13,9 +13,24 @@ def _now_iso() -> str:
 
 def load_state() -> dict:
     if not STATE_FILE.exists():
-        return {"posted": [], "weekly_buffer": []}
+        return _blank()
     with open(STATE_FILE, encoding="utf-8") as f:
-        return json.load(f)
+        st = json.load(f)
+    # Backfill missing keys (forward-compat with older state files)
+    blank = _blank()
+    for k, v in blank.items():
+        st.setdefault(k, v)
+    return st
+
+
+def _blank() -> dict:
+    return {
+        "posted": [],
+        "weekly_buffer": [],
+        "last_digest_morning": "",   # YYYY-MM-DD of last morning run (Prague date)
+        "last_digest_evening": "",   # YYYY-MM-DD of last evening run
+        "last_weekly": "",           # ISO week id like 2026-W19
+    }
 
 
 def save_state(state: dict) -> None:
@@ -34,31 +49,30 @@ def is_seen(state: dict, url: str) -> bool:
 
 
 def mark_posted(state: dict, item: dict) -> None:
-    """item is a classified+verified news item."""
     state["posted"].append({
         "hash": url_hash(item["url"]),
         "url": item["url"],
         "headline": item.get("english_headline", item.get("title", "")),
         "category": item.get("category", "other"),
+        "jurisdiction": item.get("jurisdiction", "GLOBAL"),
         "importance": item.get("importance", 0),
-        "verified": item.get("verified", False),
         "posted_at": _now_iso(),
     })
     state["weekly_buffer"].append({
         "url": item["url"],
         "headline": item.get("english_headline", item.get("title", "")),
         "summary": item.get("russian_summary", ""),
+        "post_text": item.get("post_text", ""),
         "category": item.get("category", "other"),
+        "jurisdiction": item.get("jurisdiction", "GLOBAL"),
         "importance": item.get("importance", 0),
-        "verified": item.get("verified", False),
         "posted_at": _now_iso(),
     })
 
 
 def prune(state: dict, keep_days: int = 60) -> None:
-    """Drop posted items older than keep_days; weekly_buffer older than 8 days."""
     cutoff_post = datetime.now(timezone.utc) - timedelta(days=keep_days)
-    cutoff_week = datetime.now(timezone.utc) - timedelta(days=8)
+    cutoff_week = datetime.now(timezone.utc) - timedelta(days=14)
 
     def _parse(s: str) -> datetime:
         return datetime.fromisoformat(s)
@@ -69,8 +83,17 @@ def prune(state: dict, keep_days: int = 60) -> None:
     ]
 
 
-def consume_weekly_buffer(state: dict) -> list[dict]:
-    """Return weekly buffer and clear it (caller saves state after posting)."""
-    items = list(state["weekly_buffer"])
-    state["weekly_buffer"] = []
-    return items
+def previous_week_items(state: dict) -> list[dict]:
+    """Items posted during the previous calendar week (Mon 00:00 — Sun 23:59 UTC)."""
+    now = datetime.now(timezone.utc)
+    today = now.date()
+    # Monday of this week
+    this_week_mon = today - timedelta(days=today.weekday())
+    last_week_mon = this_week_mon - timedelta(days=7)
+    last_week_sun_end = this_week_mon  # exclusive upper bound
+
+    def _in_window(s: str) -> bool:
+        d = datetime.fromisoformat(s).date()
+        return last_week_mon <= d < last_week_sun_end
+
+    return [p for p in state["weekly_buffer"] if _in_window(p["posted_at"])]

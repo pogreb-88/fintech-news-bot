@@ -1,4 +1,4 @@
-"""Weekly digest generation."""
+"""Weekly digest writer — single Telegram post recapping the previous calendar week."""
 import json
 import logging
 import os
@@ -9,32 +9,58 @@ from anthropic import Anthropic
 log = logging.getLogger(__name__)
 MODEL = "claude-sonnet-4-6"
 
-DIGEST_PROMPT = """You will be given a list of news items posted to a high-risk fintech \
-compliance Telegram channel over the past week. Each item has a headline, category, \
-importance, Russian summary, and verified flag.
+DIGEST_PROMPT = """Ты пишешь воскресный (точнее — понедельничный утренний) дайджест \
+прошлой недели для Telegram-канала о high-risk fintech compliance. Аудитория — \
+комплаенс-практики и владельцы fintech-бизнесов.
 
-Write a weekly digest in Russian:
-1. One opening paragraph (2-3 sentences) — what was the dominant theme this week?
-2. Top 5 stories — for each: one short paragraph in Russian (1-2 sentences) \
-explaining the story AND its significance ("что это значит"). Pick stories with \
-highest importance and broadest implications, not just chronologically latest.
-3. One closing paragraph (1-2 sentences) — what to watch next week.
+Голос: разговорно-экспертный, без первого лица. Прямое обращение к читателю \
+допустимо.
 
-Plain prose, no bullets unless natural, no emojis. Concise, professional Russian."""
+Структура поста:
+1. Открытие: одно предложение про доминирующую тему недели или общее наблюдение.
+2. <b>📌 Главное за неделю:</b> — топ-3-5 событий списком через тире, каждое: \
+короткий заголовок + 1-2 предложения о сути и значении.
+3. <b>⚠️ На что смотреть дальше:</b> — 1-2 предложения о том, что следить на \
+этой неделе, ТОЛЬКО если это вытекает из материалов недели. Никаких прогнозов \
+от себя.
+4. Хэштеги последней строкой: #weeklydigest + 1-2 главные категории недели.
+
+ЖЁСТКИЕ ПРАВИЛА:
+- Только факты из переданных за неделю постов. Без выдуманных событий.
+- 200-400 слов, потолок 500.
+- HTML для Telegram parse_mode=HTML: <b>, <a href="">, <i>. Без Markdown.
+- Запрет на первое лицо.
+- Если событий за неделю было меньше 3 — пиши короче, не натягивай.
+
+Верни JSON: { "post_text": "<готовый HTML-форматированный пост>" }"""
+
+
+def _extract_json(text: str):
+    text = text.strip()
+    if text.startswith("```"):
+        text = re.sub(r"^```[a-zA-Z]*\n?", "", text)
+        text = re.sub(r"\n?```$", "", text)
+    start = text.find("{")
+    end = text.rfind("}")
+    if start == -1:
+        raise ValueError(f"No JSON object in: {text[:200]}")
+    return json.loads(text[start : end + 1])
 
 
 def generate_digest(items: list[dict]) -> str | None:
     if not items:
         return None
 
-    client = Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "").strip()
+    client = Anthropic(api_key=api_key)
     payload = [
         {
             "headline": it["headline"],
             "category": it["category"],
+            "jurisdiction": it.get("jurisdiction", "GLOBAL"),
             "importance": it["importance"],
             "summary": it["summary"],
-            "verified": it["verified"],
+            "url": it["url"],
         }
         for it in items
     ]
@@ -43,14 +69,19 @@ def generate_digest(items: list[dict]) -> str | None:
         resp = client.messages.create(
             model=MODEL,
             max_tokens=2048,
-            system=DIGEST_PROMPT,
+            system=[{
+                "type": "text",
+                "text": DIGEST_PROMPT,
+                "cache_control": {"type": "ephemeral"},
+            }],
             messages=[{
                 "role": "user",
-                "content": "Items from this week:\n"
+                "content": "Posts from the previous week:\n"
                             + json.dumps(payload, ensure_ascii=False, indent=2),
             }],
         )
-        return resp.content[0].text.strip()
+        data = _extract_json(resp.content[0].text)
+        return (data.get("post_text") or "").strip() or None
     except Exception as e:
-        log.exception("Digest generation failed: %s", e)
+        log.exception("Weekly digest generation failed: %s", e)
         return None

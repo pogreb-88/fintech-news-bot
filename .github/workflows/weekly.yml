@@ -2,8 +2,12 @@ name: weekly
 
 on:
   schedule:
-    # Sunday 19:00 Dubai (UTC+4) → 15:00 UTC
-    - cron: "0 15 * * 0"
+    # Monday morning Prague (09:00-11:00 CEST = 07:00-09:00 UTC) — every 30 min
+    - cron: "0 7 * * 1"
+    - cron: "30 7 * * 1"
+    - cron: "0 8 * * 1"
+    - cron: "30 8 * * 1"
+    - cron: "0 9 * * 1"
   workflow_dispatch: {}
 
 permissions:

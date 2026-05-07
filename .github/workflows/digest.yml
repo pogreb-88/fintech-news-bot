@@ -2,9 +2,18 @@ name: digest
 
 on:
   schedule:
-    # 09:00 and 18:00 Dubai time (UTC+4) → 05:00 and 14:00 UTC
-    - cron: "0 5 * * *"
-    - cron: "0 14 * * *"
+    # Morning Prague window (09:00-11:00 CEST = 07:00-09:00 UTC) — every 30 min
+    - cron: "0 7 * * *"
+    - cron: "30 7 * * *"
+    - cron: "0 8 * * *"
+    - cron: "30 8 * * *"
+    - cron: "0 9 * * *"
+    # Evening Prague window (17:00-19:00 CEST = 15:00-17:00 UTC) — every 30 min
+    - cron: "0 15 * * *"
+    - cron: "30 15 * * *"
+    - cron: "0 16 * * *"
+    - cron: "30 16 * * *"
+    - cron: "0 17 * * *"
   workflow_dispatch: {}
 
 permissions:
