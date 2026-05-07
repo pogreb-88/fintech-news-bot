@@ -62,6 +62,24 @@
       "importance": 3,
       "verified": false,
       "posted_at": "2026-05-07T11:02:42.607713+00:00"
+    },
+    {
+      "hash": "0a5f7e44cf0875de",
+      "url": "https://www.coindesk.com/business/2026/05/07/kraken-to-buy-stablecoin-payments-firm-reap-in-usd600-million-deal-bloomberg",
+      "headline": "Kraken to acquire stablecoin payments firm Reap for ~$600M",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T13:15:51.124632+00:00"
+    },
+    {
+      "hash": "fd3c434c9941bc0c",
+      "url": "https://decrypt.co/367075/white-house-targets-july-4-for-clarity-act-passage-crypto-adviser",
+      "headline": "White House Eyes July 4 Deadline for US Crypto Clarity Act Passage",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T13:15:51.124669+00:00"
     }
   ],
   "weekly_buffer": [
@@ -127,6 +145,24 @@
       "importance": 3,
       "verified": false,
       "posted_at": "2026-05-07T11:02:42.607715+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/05/07/kraken-to-buy-stablecoin-payments-firm-reap-in-usd600-million-deal-bloomberg",
+      "headline": "Kraken to acquire stablecoin payments firm Reap for ~$600M",
+      "summary": "По данным Bloomberg, Kraken намерена приобрести компанию Reap, занимающуюся стейблкоин-платежами, в рамках сделки стоимостью $600 млн. Это крупное поглощение объединит криптобиржу с платёжным провайдером в сфере стейблкоинов, что имеет прямые последствия для регулирования VASP и PSP. Сделка требует внимательного мониторинга с точки зрения лицензирования и AML.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T13:15:51.124659+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367075/white-house-targets-july-4-for-clarity-act-passage-crypto-adviser",
+      "headline": "White House Eyes July 4 Deadline for US Crypto Clarity Act Passage",
+      "summary": "Белый дом нацелен на принятие законопроекта Clarity Act о регулировании криптовалют до 4 июля. Комитет Сената по банковским вопросам планирует рассмотрение проекта в текущем месяце. Советник президента Патрик Витт отметил, что для голосования в Сенате остаётся четыре рабочих недели в июне.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T13:15:51.124675+00:00"
     }
   ]
 }
