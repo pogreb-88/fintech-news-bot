@@ -125,6 +125,15 @@
       "jurisdiction": "SG",
       "importance": 3,
       "posted_at": "2026-05-07T13:38:56.476649+00:00"
+    },
+    {
+      "hash": "bf9f61599f3db1a3",
+      "url": "https://decrypt.co/367066/hardware-wallet-thief-gets-78-months-in-prison-over-250m-crypto-heist",
+      "headline": "Crypto thief 'GothFerrari' sentenced to 78 months for $250M heist via social engineering",
+      "category": "aml",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:49:06.340767+00:00"
     }
   ],
   "weekly_buffer": [
@@ -258,6 +267,16 @@
       "jurisdiction": "SG",
       "importance": 3,
       "posted_at": "2026-05-07T13:38:56.476652+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367066/hardware-wallet-thief-gets-78-months-in-prison-over-250m-crypto-heist",
+      "headline": "Crypto thief 'GothFerrari' sentenced to 78 months for $250M heist via social engineering",
+      "summary": "Участник преступной группировки под ником GothFerrari приговорён к 78 месяцам лишения свободы за кражу криптовалюты на сумму 250 млн долларов. Преступление совершалось с использованием методов социальной инженерии и физических взломов. Это один из крупнейших приговоров по делам о краже криптовалюты в США.",
+      "post_text": "🇺🇸 78 месяцев реального срока за $250 млн в крипте — и это лишь один участник группы.\n\nУчастник преступной группировки под ником GothFerrari приговорён к 78 месяцам лишения свободы за участие в краже криптовалюты на $250 млн. Схема строилась на социальной инженерии и физических взломах.\n\n📌 <b>Детали дела:</b>\n— объём похищенного — $250 млн в криптовалюте\n— методы: социальная инженерия в сочетании с физическим проникновением\n— один из крупнейших приговоров по делам о краже крипты в США\n\nДело наглядно показывает, что DOJ последовательно квалифицирует крупные крипто-кражи как тяжкие федеральные преступления с реальными сроками. Для compliance-команд это ещё один аргумент в пользу усиленного мониторинга транзакций, связанных с резкими крупными поступлениями без чёткого источника средств — особенно в сегменте VASP и кастодиальных кошельков.\n\nПодробнее в <a href=\"https://decrypt.co/367066/hardware-wallet-thief-gets-78-months-in-prison-over-250m-crypto-heist\">материале Decrypt</a> и <a href=\"https://www.theblock.co/post/400337/california-man-78-months-crypto-theft\">репортаже The Block</a>.\n\n#aml #cryptoenforcement 🇺🇸",
+      "category": "aml",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:49:06.340793+00:00"
     }
   ],
   "last_digest_morning": "",
