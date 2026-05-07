@@ -80,6 +80,51 @@
       "importance": 4,
       "verified": false,
       "posted_at": "2026-05-07T13:15:51.124669+00:00"
+    },
+    {
+      "hash": "f252ef0bd1110507",
+      "url": "https://cointelegraph.com/news/california-man-sentenced-to-78-months-in-250m-crypto-theft-conspiracy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "California man jailed 78 months for role in $250M crypto theft ring",
+      "category": "aml",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476585+00:00"
+    },
+    {
+      "hash": "3f9bab66bff3b906",
+      "url": "https://www.fca.org.uk/news/press-releases/fca-sets-out-guidance-support-innovation-fund-tokenisation",
+      "headline": "FCA issues guidance on fund tokenisation using DLT within existing rules",
+      "category": "crypto",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476621+00:00"
+    },
+    {
+      "hash": "d2d5ada68a92f887",
+      "url": "https://www.coindesk.com/business/2026/05/07/bny-world-s-largest-custody-bank-expands-crypto-services-in-abu-dhabi",
+      "headline": "BNY Mellon expands crypto custody services in Abu Dhabi",
+      "category": "crypto",
+      "jurisdiction": "AE",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476632+00:00"
+    },
+    {
+      "hash": "95dfd08b159882ca",
+      "url": "https://cointelegraph.com/news/1inch-fusion-resolver-trusted-volumes-floats-bounty-after-67m-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "TrustedVolumes DeFi resolver hit by $6.7M exploit; 1inch unaffected",
+      "category": "crypto",
+      "jurisdiction": "GLOBAL",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476641+00:00"
+    },
+    {
+      "hash": "e7f371409861f705",
+      "url": "https://cointelegraph.com/news/bithumb-moves-vietnams-crypto-exchange-race-ssi-digital-tie-up?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Bithumb eyes Vietnam crypto licence via SSI Digital partnership",
+      "category": "regulator_action",
+      "jurisdiction": "SG",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476649+00:00"
     }
   ],
   "weekly_buffer": [
@@ -163,6 +208,59 @@
       "importance": 4,
       "verified": false,
       "posted_at": "2026-05-07T13:15:51.124675+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/california-man-sentenced-to-78-months-in-250m-crypto-theft-conspiracy?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "California man jailed 78 months for role in $250M crypto theft ring",
+      "summary": "Марлон Ферро осуждён на 78 месяцев за участие в организованной группе по краже криптовалюты на 250 млн долларов. Преступники физически проникали в дома жертв для кражи аппаратных кошельков, когда удалённый взлом не удавался. Дело подчёркивает угрозы физической безопасности для держателей криптоактивов.",
+      "post_text": "🇺🇸 Когда удалённый взлом не сработал — они просто послали человека с кирпичом.\n\nМарлон Ферро (ник «GothFerrari»), 20 лет, из Санта-Аны (Калифорния) приговорён к 78 месяцам федеральной тюрьмы за участие в RICO-заговоре: организованная группа похитила криптоактивы на <b>$250 млн</b>.\n\n📌 <b>Детали дела:</b>\n— Группа действовала с конца 2023 по начало 2025 года; участники из нескольких штатов и из-за рубежа\n— Роли распределены: взлом баз данных, идентификация жертв, мошеннические звонки, отмывание средств\n— Когда удалённый доступ к аппаратным кошелькам был невозможен — Ферро выезжал физически\n— В феврале 2024-го он взломал дом в Техасе и вынес кошелёк с ~100 BTC (тогда $5 млн)\n— В другом эпизоде несколько дней вёл наружное наблюдение в Нью-Мексико; местонахождение жертвы отслеживали через iCloud\n— Похищенное тратилось на сумки Hermès, часы до $500k, частные джеты, экзотические авто до $3,8 млн\n— Ферро также отмывал средства через фиктивные документы и конвертировал крипту в кэш для покрытия судебных расходов лидера группы\n— Приговор: 78 месяцев + 3 года надзора + $2,5 млн реституции\n\n<b>Что важно для практиков:</b> Дело наглядно демонстрирует, что угрозы для держателей криптоактивов не ограничиваются кибератаками — физическая безопасность клиентов и защита данных об их местонахождении входят в периметр операционных рисков, которые VASP и custodians обязаны учитывать в своих программах управления рисками.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/california-man-sentenced-to-78-months-in-250m-crypto-theft-conspiracy\">материале Cointelegraph</a> и <a href=\"https://decrypt.co/367066/hardware-wallet-thief-gets-78-months-in-prison-over-250m-crypto-heist\">репортаже Decrypt</a>.\n\n#aml #enforcement #crypto 🇺🇸",
+      "category": "aml",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476610+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/press-releases/fca-sets-out-guidance-support-innovation-fund-tokenisation",
+      "headline": "FCA issues guidance on fund tokenisation using DLT within existing rules",
+      "summary": "FCA опубликовало руководство, разъясняющее, как управляющие активами могут использовать технологию распределённого реестра (DLT) в рамках действующего регулирования для токенизации фондов. Новые правила также вводят опциональную модель прямого взаимодействия инвестора с фондом (Direct to Fund). Инициатива направлена на снижение издержек и повышение эффективности операций с фондами.",
+      "post_text": "🇬🇧 FCA наконец дало практический ответ на вопрос, как токенизировать фонды, не выходя за рамки действующих правил.\n\nРегулятор опубликовал руководство PS26/7, разъясняющее, как управляющие активами могут применять DLT в существующей нормативной среде. Одновременно вводится опциональная модель Direct to Fund (D2F), позволяющая инвесторам работать напрямую с фондом — как традиционным, так и токенизированным.\n\n✅ <b>Что разъяснили:</b>\n— DLT можно использовать для токенизации фондов в рамках текущих правил FCA без ожидания новой законодательной базы\n— Модель D2F — опциональная, не обязательная для всех участников рынка\n— Руководство включает подходы к публичным блокчейн-моделям при наличии надлежащего контроля\n— Допускается использование инструментов цифровых денег для операционных нужд\n— FCA обозначила токенизацию фондов частью своей roadmap по цифровым активам\n\n<b>Что важно для практиков:</b> Управляющим активами, рассматривающим токенизацию, стоит изучить PS26/7 как операционный ориентир — документ снимает часть правовой неопределённости и задаёт параметры допустимых моделей уже сейчас. Комплаенс-командам следует оценить, как D2F влияет на процедуры KYC/AML при прямом взаимодействии инвесторов с фондом.\n\nПодробнее в <a href=\"https://www.fca.org.uk/news/press-releases/fca-sets-out-guidance-support-innovation-fund-tokenisation\">материале FCA</a>.\n\n#crypto #tokenisation 🇬🇧",
+      "category": "crypto",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476626+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/business/2026/05/07/bny-world-s-largest-custody-bank-expands-crypto-services-in-abu-dhabi",
+      "headline": "BNY Mellon expands crypto custody services in Abu Dhabi",
+      "summary": "BNY Mellon, крупнейший кастодиальный банк мира, расширяет криптовалютные услуги в Абу-Даби. Шаг отражает растущий интерес традиционных финансовых институтов к рынку цифровых активов ОАЭ. Это усиливает позиции Абу-Даби как регионального хаба для институциональных крипто-сервисов.",
+      "post_text": "🇦🇪 Крупнейший кастодиальный банк мира заходит в крипто-инфраструктуру Абу-Даби — и делает это через регулируемую площадку ADGM.\n\nBNY ($59 трлн активов под кастодией) объявил о партнёрстве с Finstreet и ADI Foundation для запуска услуг по хранению цифровых активов в рамках Abu Dhabi Global Market. Старт — с кастодией BTC и ETH, следующий этап — стейблкоины и токенизированные активы.\n\n📌 <b>Детали:</b>\n— Инфраструктура строится под регуляторный периметр ADGM\n— BNY был первым крупным системно значимым банком США, запустившим цифровой кастодиальный сервис\n— Параллельно в ОАЭ развиваются инициативы по дирхам-стейблкоину для государственного и институционального использования\n— Фокус — не трейдинг, а кастодия и инфраструктура для токенизации (облигации, фонды, акции)\n\n<b>Что важно для практиков:</b> Вход BNY через ADGM подтверждает, что институциональные игроки рассматривают именно регулируемые фризоны ОАЭ как точку входа на рынок региона. Для VASP и эмитентов токенизированных активов, выбирающих юрисдикцию, это сигнал о росте ликвидности и инфраструктуры под надзором ADGM FSRA.\n\nПодробнее в <a href=\"https://www.coindesk.com/business/2026/05/07/bny-world-s-largest-custody-bank-expands-crypto-services-in-abu-dhabi\">материале CoinDesk</a>.\n\n#crypto #custody #ADGM 🇦🇪",
+      "category": "crypto",
+      "jurisdiction": "AE",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476636+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/1inch-fusion-resolver-trusted-volumes-floats-bounty-after-67m-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "TrustedVolumes DeFi resolver hit by $6.7M exploit; 1inch unaffected",
+      "summary": "Независимый резолвер ликвидности TrustedVolumes подвергся эксплойту на $6,7 млн. Протокол 1inch заявил, что его инфраструктура и средства пользователей не пострадали. Инцидент затронул несколько DeFi-протоколов, использовавших TrustedVolumes.",
+      "post_text": "🌍 DeFi-резолвер TrustedVolumes потерял $6,7 млн — и это не проблема 1inch.\n\nНезависимый маркет-мейкер и резолвер TrustedVolumes подвергся эксплойту: по данным самой компании, украденные средства ($6,7 млн) распределены по трём Ethereum-адресам. Протокол 1inch заявил, что его системы, инфраструктура и средства пользователей не затронуты.\n\n📌 <b>Ключевые детали:</b>\n— Атакующий зарегистрировался как разрешённый подписант ордеров через публичную функцию, затем использовал авторизацию для вывода средств (CertiK)\n— Украдены WETH, USDT, WBTC, USDC; Blockaid первоначально оценил потери в ~$5,87 млн\n— TrustedVolumes выразил готовность к «конструктивному диалогу» и bug bounty\n— Атака связана с тем же оператором, что стоял за мартовским эксплойтом Fusion V1 в 2025 году, но через иную уязвимость\n— В марте 2025 года большая часть похищенных средств была возвращена в рамках bug bounty\n\n<b>Что важно для практиков:</b> Инцидент наглядно демонстрирует риски third-party инфраструктуры в DeFi: уязвимость независимого резолвера может мгновенно ударить по ликвидности нескольких протоколов одновременно, даже если ядро протокола не скомпрометировано. Комплаенс и риск-менеджмент в сегменте DeFi должны учитывать цепочку зависимостей от внешних провайдеров.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/1inch-fusion-resolver-trusted-volumes-floats-bounty-after-67m-exploit?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound\">репортаже Cointelegraph</a> и <a href=\"https://decrypt.co/367070/defi-platform-trustedvolumes-hit-by-6-7m-exploit\">материале Decrypt</a>.\n\n#DeFi #exploit #crypto 🌍",
+      "category": "crypto",
+      "jurisdiction": "GLOBAL",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476644+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bithumb-moves-vietnams-crypto-exchange-race-ssi-digital-tie-up?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Bithumb eyes Vietnam crypto licence via SSI Digital partnership",
+      "summary": "Южнокорейская биржа Bithumb заключила сделку с SSI Digital для участия в пилотной программе лицензирования криптобирж во Вьетнаме. Конкуренция за ограниченное число лицензий усиливается на фоне растущего регуляторного контроля. Параллельно Bithumb сталкивается с повышенным вниманием регуляторов на внутреннем рынке.",
+      "post_text": "🇻🇳 Биржа Bithumb рвётся в один из самых строгих крипто-пилотов региона — и конкуренция там уже нешуточная.\n\nЮжнокорейская Bithumb подписала MoU с SSI Digital (дочка крупнейшего вьетнамского брокера SSI Securities) для совместного создания и операционной деятельности виртуальной биржи активов во Вьетнаме. Соглашение также предусматривает опцию стратегического входа в капитал.\n\n📌 <b>Детали пилотной программы:</b>\n— Пилот запущен в сентябре 2025 года сроком на 5 лет\n— Оператор должен быть вьетнамским юрлицом с уставным капиталом не менее 10 трлн донгов (~$380 млн)\n— Иностранное владение ограничено 49%\n— В первом отборочном раунде уже прошли пять компаний, в т.ч. аффилированные с банками Techcombank, VPBank и LPBank\n— Конкурент CAEX (связан с VPBank) привлёк поддержку OKX Ventures и HashKey Capital\n\n⚠️ <b>На что обратить внимание:</b>\n— Ни одна биржа ещё не получила финальную лицензию в рамках пилота\n— Сроки подачи заявки и инвестиционного решения Bithumb не раскрывает\n— На домашнем рынке биржа сталкивается с регуляторными санкциями и перенесла IPO на после 2028 года\n\n<b>Что важно для практиков:</b> Структура вьетнамского пилота — капиталоёмкий порог, ограничение иностранного участия и возможный запрет нелицензированных зарубежных платформ — задаёт жёсткие параметры для любой иностранной биржи, входящей через локального партнёра. Compliance-командам стоит отслеживать финализацию правил об ограничении торговли на зарубежных платформах.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/bithumb-moves-vietnams-crypto-exchange-race-ssi-digital-tie-up\">материале Cointelegraph</a> и <a href=\"https://www.theblock.co/post/400341/bithumb-vietnam-ssid\">репортаже The Block</a>.\n\n#VASP #licensing 🇻🇳",
+      "category": "regulator_action",
+      "jurisdiction": "SG",
+      "importance": 3,
+      "posted_at": "2026-05-07T13:38:56.476652+00:00"
     }
-  ]
+  ],
+  "last_digest_morning": "",
+  "last_digest_evening": "",
+  "last_weekly": ""
 }
