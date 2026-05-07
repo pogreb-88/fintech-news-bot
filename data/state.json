@@ -134,6 +134,15 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-07T13:49:06.340767+00:00"
+    },
+    {
+      "hash": "59e26e5cb399ba26",
+      "url": "https://cointelegraph.com/news/kraken-payward-reap-acquisition-600-million-asia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Kraken parent Payward acquires HK-based Reap for up to $600M in stablecoin push",
+      "category": "crypto",
+      "jurisdiction": "HK",
+      "importance": 4,
+      "posted_at": "2026-05-07T15:44:25.286221+00:00"
     }
   ],
   "weekly_buffer": [
@@ -277,6 +286,16 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-07T13:49:06.340793+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/kraken-payward-reap-acquisition-600-million-asia?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Kraken parent Payward acquires HK-based Reap for up to $600M in stablecoin push",
+      "summary": "Payward, материнская компания Kraken, договорилась о приобретении гонконгской компании Reap за сумму до $600 млн. Сделка добавит Kraken возможности выпуска карт и проведения платежей в стейблкоинах в рамках нового B2B-направления. Это крупнейшее поглощение в истории биржи, направленное на развитие трансграничных платежей в Азии.",
+      "post_text": "🇭🇰 Kraken идёт в азиатские платежи — и платит за это до $600 млн.\n\nPayward, материнская компания Kraken, подписала соглашение о приобретении гонконгской Reap Technologies. Сделка — крупнейшая в истории биржи — оценивает Payward в $20 млрд и будет закрыта в виде комбинации кэша и акций.\n\n❗ <b>Что произошло:</b>\n— Reap добавляет Payward выпуск карт, трансграничные платежи и stablecoin-казначейские сервисы\n— Reap войдёт в состав Payward Services — B2B-платформы, запущенной в марте 2026 года\n— Компания продолжит работу как самостоятельная платформа\n— Закрытие сделки ожидается во второй половине 2026 года, требует регуляторных одобрений\n— Reap основана в 2018 году, специализируется на связке традиционных финансов и цифровых активов в Азии\n\n⚠️ <b>На что обратить внимание:</b>\n— Регуляторные согласования в Гонконге — ключевой развязывающий риск для сделки\n— Интеграция карточного эмитента и stablecoin-рельсов под одним юридическим зонтиком VASP создаст новые вопросы к лицензионной конфигурации\n\nДля compliance-команд это сигнал: cross-border B2B stablecoin-платформы в Азии выходят из нишевого статуса, а регуляторный периметр вокруг связки «карта + стейблкоин + криптобиржа» продолжает усложняться.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/kraken-payward-reap-acquisition-600-million-asia\">материале Cointelegraph</a> и <a href=\"https://decrypt.co/367094/kraken-parent-acquires-asian-stablecoin-firm-reap-600-million\">репортаже Decrypt</a>.\n\n#crypto #stablecoin #payments #M&A 🇭🇰",
+      "category": "crypto",
+      "jurisdiction": "HK",
+      "importance": 4,
+      "posted_at": "2026-05-07T15:44:25.286248+00:00"
     }
   ],
   "last_digest_morning": "",
