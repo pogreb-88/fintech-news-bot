@@ -1,4 +1,132 @@
 {
-  "posted": [],
-  "weekly_buffer": []
+  "posted": [
+    {
+      "hash": "c50a200a77aed121",
+      "url": "https://www.fca.org.uk/news/press-releases/sapia-agrees-pay-more-than-19m-to-wealthtek-clients",
+      "headline": "FCA censures Sapia, orders £19.6m payment to WealthTek clients over client money failures",
+      "category": "aml",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607636+00:00"
+    },
+    {
+      "hash": "796fc8c4608c19b7",
+      "url": "https://www.fca.org.uk/news/news-stories/cryptoasset-firms-can-request-pre-application-meetings-11-may-2026",
+      "headline": "FCA opens pre-application meetings for crypto firms from May 2026",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607675+00:00"
+    },
+    {
+      "hash": "4cee801051c87546",
+      "url": "https://cointelegraph.com/news/bny-to-launch-institutional-bitcoin-ethereum-custody-for-investors-in-uae?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "BNY partners with UAE entities to offer regulated BTC/ETH custody via ADGM",
+      "category": "crypto",
+      "importance": 4,
+      "verified": true,
+      "posted_at": "2026-05-07T11:02:42.607684+00:00"
+    },
+    {
+      "hash": "9ce0ca44a063294d",
+      "url": "https://cointelegraph.com/news/jpmorgan-mastercard-first-cross-border-us-treasury-settlement-xrp-ledger?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "JPMorgan & Mastercard complete first cross-border US Treasury transfer via XRP Ledger",
+      "category": "crypto",
+      "importance": 4,
+      "verified": true,
+      "posted_at": "2026-05-07T11:02:42.607691+00:00"
+    },
+    {
+      "hash": "48287477c464cfb4",
+      "url": "https://cointelegraph.com/news/uae-regulated-stablecoins-to-develop-aed-usd-conversion-rails-for-institutional-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "UAE regulated stablecoins to enable near-instant AED-USD institutional settlement",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607699+00:00"
+    },
+    {
+      "hash": "4727649f111eb279",
+      "url": "https://www.fca.org.uk/news/press-releases/competition-act-1998-investigations",
+      "headline": "FCA investigates Mastercard, Visa & PayPal for anti-competitive conduct",
+      "category": "regulator_action",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607705+00:00"
+    },
+    {
+      "hash": "d4fda1f8b62f9470",
+      "url": "https://www.fca.org.uk/news/news-stories/three-arrested-fca-investigation-suspected-unlawful-financial-promotions",
+      "headline": "FCA arrests three in crackdown on suspected unlawful financial promotions",
+      "category": "aml",
+      "importance": 3,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607713+00:00"
+    }
+  ],
+  "weekly_buffer": [
+    {
+      "url": "https://www.fca.org.uk/news/press-releases/sapia-agrees-pay-more-than-19m-to-wealthtek-clients",
+      "headline": "FCA censures Sapia, orders £19.6m payment to WealthTek clients over client money failures",
+      "summary": "FCA вынесла публичный выговор компании Sapia и обязала её выплатить более £19,6 млн клиентам WealthTek за ненадлежащую защиту клиентских средств. Установлено, что Sapia не обеспечила разделение ключевых функций в области клиентских денег, что привело к нарушениям сегрегации. Это крупный случай применения правил о защите клиентских активов.",
+      "category": "aml",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607665+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/news-stories/cryptoasset-firms-can-request-pre-application-meetings-11-may-2026",
+      "headline": "FCA opens pre-application meetings for crypto firms from May 2026",
+      "summary": "С 11 мая 2026 года криптоактивные компании смогут запрашивать предварительные встречи с FCA через сервис PASS для подготовки к получению авторизации в рамках нового режима регулирования FSMA. Встречи бесплатны и позволят фирмам обсудить планы до подачи заявки. Это часть подготовки к новому режиму регулирования криптоактивов в Великобритании.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607679+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/bny-to-launch-institutional-bitcoin-ethereum-custody-for-investors-in-uae?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "BNY partners with UAE entities to offer regulated BTC/ETH custody via ADGM",
+      "summary": "BNY Mellon совместно с Finstreet и ADI Foundation запустит регулируемое хранение Bitcoin и Ethereum для институциональных клиентов в ОАЭ через платформу ADGM. Это значимый шаг для развития криптоинфраструктуры в регионе под регуляторным надзором.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": true,
+      "posted_at": "2026-05-07T11:02:42.607687+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/jpmorgan-mastercard-first-cross-border-us-treasury-settlement-xrp-ledger?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "JPMorgan & Mastercard complete first cross-border US Treasury transfer via XRP Ledger",
+      "summary": "JPMorgan и Mastercard совершили первый трансграничный перевод токенизированных казначейских облигаций США через XRP Ledger, объединив банковскую и блокчейн-инфраструктуру. Сделка является продолжением более раннего пилотного проекта по межсетевым переводам активов.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": true,
+      "posted_at": "2026-05-07T11:02:42.607694+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/uae-regulated-stablecoins-to-develop-aed-usd-conversion-rails-for-institutional-settlement?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "UAE regulated stablecoins to enable near-instant AED-USD institutional settlement",
+      "summary": "В ОАЭ разрабатывается инфраструктура для мгновенной конвертации между стейблкоинами в дирхамах и долларах США в рамках регулируемого режима платёжных токенов. Система направлена на институциональные расчёты и соответствует нормам CBUAE.",
+      "category": "crypto",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607701+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/press-releases/competition-act-1998-investigations",
+      "headline": "FCA investigates Mastercard, Visa & PayPal for anti-competitive conduct",
+      "summary": "FCA начало расследование в отношении Mastercard, PayPal и Visa по подозрению в антиконкурентном поведении, связанном с финансированием и использованием цифрового кошелька PayPal. Расследование ведётся в рамках глав I и II Закона о конкуренции 1998 года. Выводов о нарушении законодательства пока не сделано.",
+      "category": "regulator_action",
+      "importance": 4,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607708+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/news-stories/three-arrested-fca-investigation-suspected-unlawful-financial-promotions",
+      "headline": "FCA arrests three in crackdown on suspected unlawful financial promotions",
+      "summary": "FCA совместно с полицейским подразделением ERSOU арестовало трёх человек по подозрению в незаконных финансовых промоакциях. В ходе операции были обысканы два дома в районах Челмсфорд и Ромфорд. Регулятор предупреждает о рисках работы с нерегулируемыми фирмами.",
+      "category": "aml",
+      "importance": 3,
+      "verified": false,
+      "posted_at": "2026-05-07T11:02:42.607715+00:00"
+    }
+  ]
 }
