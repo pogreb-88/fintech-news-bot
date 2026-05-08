@@ -188,6 +188,24 @@
       "jurisdiction": "UK",
       "importance": 3,
       "posted_at": "2026-05-07T17:24:07.290688+00:00"
+    },
+    {
+      "hash": "57860b761cfbc765",
+      "url": "https://cointelegraph.com/news/coinbase-shares-slide-q1-loss-revenue-miss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Coinbase shares drop on $400M Q1 loss and revenue miss",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T08:29:07.767006+00:00"
+    },
+    {
+      "hash": "cfde5f1a0843f287",
+      "url": "https://www.theblock.co/post/400500/dorseys-block-raises-full-year-guidance-after-strong-q1-records-173-million-bitcoin-remeasurement-loss?utm_source=rss&utm_medium=rss",
+      "headline": "Block raises 2025 guidance despite 31% drop in Cash App bitcoin revenue",
+      "category": "payments",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T08:29:07.767040+00:00"
     }
   ],
   "weekly_buffer": [
@@ -391,9 +409,29 @@
       "jurisdiction": "UK",
       "importance": 3,
       "posted_at": "2026-05-07T17:24:07.290691+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/coinbase-shares-slide-q1-loss-revenue-miss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "Coinbase shares drop on $400M Q1 loss and revenue miss",
+      "summary": "Акции Coinbase упали после публикации отчётности: убыток за первый квартал составил около $400 млн при недовыполнении прогноза по выручке. Финансовый директор Алесия Хаас признала «действительно тяжёлые макроусловия». CEO Брайан Армстронг анонсировал план диверсификации бизнеса за пределы спотовой торговли.",
+      "post_text": "🇺🇸 Coinbase зафиксировал убыток в $394 млн за первый квартал 2026 года — второй квартальный минус подряд.\n\nВыручка составила $1,41 млрд против ожидавшихся $1,5 млрд. Акции после закрытия торгов упали на 4,7%, с начала года бумага потеряла более 14,5%.\n\n📌 <b>Ключевые цифры и факты:</b>\n— Чистый убыток: $394,1 млн (после $667 млн убытка в Q4 2025)\n— Транзакционная выручка упала на 40% г/г\n— Subscription &amp; services revenue снизился на 13,5% г/г\n— Убыток на акцию: $1,49 против прогноза $0,36\n— Совокупная капитализация крипторынка и объёмы торгов просели более чем на 20% кв/кв\n— В начале недели биржа сократила около 700 сотрудников (14% штата)\n\nCEO Брайан Армстронг анонсировал курс на диверсификацию: переход от «платформы спотовой торговли» к площадке с мультиактивным охватом, включая предсказательные рынки.\n\nДля compliance-команд и партнёров биржи квартальные результаты подтверждают, что операционное давление на крупнейшие централизованные площадки сохраняется — а масштабные сокращения персонала стоит учитывать при оценке ресурсов на стороне KYC/AML-подразделений контрагента.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/coinbase-shares-slide-q1-loss-revenue-miss?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound\">материале Cointelegraph</a> и <a href=\"https://www.theblock.co/post/400489/coinbase-loses-nearly-400-million-ceo-seeks-to-reduce-dependence-spot-crypto-trading?utm_source=rss&utm_medium=rss\">репортаже The Block</a>.\n\n#crypto #VASP #exchange 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T08:29:07.767030+00:00"
+    },
+    {
+      "url": "https://www.theblock.co/post/400500/dorseys-block-raises-full-year-guidance-after-strong-q1-records-173-million-bitcoin-remeasurement-loss?utm_source=rss&utm_medium=rss",
+      "headline": "Block raises 2025 guidance despite 31% drop in Cash App bitcoin revenue",
+      "summary": "Компания Block (ранее Square) повысила прогноз на весь 2025 год после «сильного» первого квартала, несмотря на убыток от переоценки биткоина в $173 млн. Выручка bitcoin-направления Cash App упала на 31% год к году. Square сообщила о незначительном влиянии крипто-операций на валовую прибыль.",
+      "post_text": "🇺🇸 Cash App зарабатывает на биткоине всё меньше — но Block повышает прогноз на год.\n\nBlock Inc (бывший Square) отчитался за первый квартал: $173 млн нереализованного убытка от переоценки биткоина и чистый убыток в $309 млн для акционеров. При этом компания повысила годовой прогноз, ожидая роста валовой прибыли на 19% и роста скорректированного EPS на 62%.\n\n⚠️ <b>На что обратить внимание:</b>\n— Биткоин-выручка Cash App упала на 31% год к году — несмотря на рост крипторынка в целом\n— BTC-направление Square принесло ~$28 млн выручки при сопоставимых затратах: вклад в валовую прибыль близок к нулю\n— На балансе Block — 28 355 BTC (~$2,2 млрд): fair value accounting генерирует волатильность в P&L, даже если позиция не продаётся\n— Скорректированная операционная прибыль выросла на 56%, маржа достигла рекордных 25% — за счёт lending, banking и commerce, а не крипто\n\nДля compliance-команд VASP и криптобирж это сигнал: корпоративные BTC-казначейства требуют чёткого разграничения учётных и регуляторных рисков. Нереализованные убытки от переоценки могут влиять на оценку финансовой устойчивости контрагента при KYB-проверках.\n\nПодробнее в <a href=\"https://www.theblock.co/post/400500/dorseys-block-raises-full-year-guidance-after-strong-q1-records-173-million-bitcoin-remeasurement-loss?utm_source=rss&utm_medium=rss\">материале The Block</a> и <a href=\"https://cointelegraph.com/news/blocks-rises-8-percent-after-q1-earnings-surprise?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound\">репортаже Cointelegraph</a>.\n\n#payments #crypto #VASP 🇺🇸",
+      "category": "payments",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T08:29:07.767044+00:00"
     }
   ],
-  "last_digest_morning": "",
+  "last_digest_morning": "2026-05-08",
   "last_digest_evening": "2026-05-07",
   "last_weekly": ""
 }
