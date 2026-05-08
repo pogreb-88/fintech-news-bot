@@ -206,6 +206,51 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-08T08:29:07.767040+00:00"
+    },
+    {
+      "hash": "c213a5d5d298849a",
+      "url": "https://cointelegraph.com/news/stablecoins-euro-global-role-ecb-christine-lagarde?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "ECB's Lagarde: stablecoins won't bolster euro's global role",
+      "category": "crypto",
+      "jurisdiction": "EU",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169480+00:00"
+    },
+    {
+      "hash": "9a2cf8389e89fbea",
+      "url": "https://www.coindesk.com/markets/2026/05/08/arbitrum-approves-usd71-million-eth-release-despite-u-s-seizure-fight",
+      "headline": "Arbitrum DAO approves $71M ETH release amid US government seizure dispute",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169520+00:00"
+    },
+    {
+      "hash": "13474cfb8135db85",
+      "url": "https://www.coindesk.com/policy/2026/05/08/stablecoins-have-their-permission-slip-now-comes-the-hard-part",
+      "headline": "US stablecoin legislation advances — industry faces implementation challenges",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169530+00:00"
+    },
+    {
+      "hash": "78d8d90b11a02521",
+      "url": "https://www.fca.org.uk/news/press-releases/convicted-money-launderer-sentenced-extra-prison-time",
+      "headline": "FCA money launderer jailed extra 499 days for failing to pay £529k confiscation order",
+      "category": "aml",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-08T17:28:13.169538+00:00"
+    },
+    {
+      "hash": "88c6196f6b359b2a",
+      "url": "https://cointelegraph.com/news/aws-data-center-overheating-impacting-coinbase-others?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "AWS data center outage forces Coinbase into 'cancel only' trading mode",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T17:28:13.169545+00:00"
     }
   ],
   "weekly_buffer": [
@@ -429,9 +474,59 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-08T08:29:07.767044+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/stablecoins-euro-global-role-ecb-christine-lagarde?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "ECB's Lagarde: stablecoins won't bolster euro's global role",
+      "summary": "Президент ЕЦБ Кристин Лагард заявила, что частные стейблкоины не укрепят международные позиции евро. Вместо этого она призвала к созданию токенизированной расчётной инфраструктуры на базе денег центрального банка. Позиция ЕЦБ имеет прямое значение для регулирования рынка стейблкоинов в рамках MiCA.",
+      "post_text": "🇪🇺 Лагард прямо: евро-стейблкоины не решат проблему глобальной роли евро.\n\nПрезидент ЕЦБ Кристин Лагард выступила на форуме Banco de España в Испании и чётко разделила денежную и технологическую функции стейблкоинов — чтобы показать: продвигать частные евро-токены как ответ на долларовые стейблкоины (98% рынка) — ошибочная стратегия.\n\n⚠️ <b>На что обратить внимание:</b>\n— Евро-стейблкоины под MiCA могут создать дополнительный спрос на европейские безопасные активы, но несут риски: набеги на фонды, хрупкость резервов, ослабление трансмиссии монетарной политики\n— Лагард привела коллапс SVB в 2023 году и депег USDC как пример того, как давление на погашение перетекает на рынки базовых активов\n— Альтернатива ЕЦБ: проект <b>Pontes</b> для расчётов в деньгах центробанка на DLT-платформах и дорожная карта <b>Appia</b> — план полностью интероперабельной токенизированной экосистемы к 2028 году\n— Технологическая функция стейблкоинов не уникальна: токенизированные депозиты комбанков или CBDC могут выполнять ту же роль\n\nДля compliance-команд VASP и эмитентов токенов, работающих под MiCA, это сигнал: регуляторный вектор ЕС будет смещаться в сторону инфраструктурных решений на базе центробанковских денег, а не поддержки частных стейблкоинов как системообразующего инструмента.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/stablecoins-euro-global-role-ecb-christine-lagarde\">материале Cointelegraph</a> и <a href=\"https://www.coindesk.com/business/2026/05/08/ecb-s-lagarde-warns-tether-and-circle-stablecoins-risk-digital-dollarisation-in-europe\">репортаже CoinDesk</a>.\n\n#stablecoins #MiCA #CBDC 🇪🇺",
+      "category": "crypto",
+      "jurisdiction": "EU",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169510+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/markets/2026/05/08/arbitrum-approves-usd71-million-eth-release-despite-u-s-seizure-fight",
+      "headline": "Arbitrum DAO approves $71M ETH release amid US government seizure dispute",
+      "summary": "Управляющий орган Arbitrum одобрил разблокировку эфира на сумму $71 млн, несмотря на продолжающийся судебный спор об изъятии активов американскими властями. Ситуация поднимает важные вопросы относительно юрисдикции регуляторов над активами децентрализованных протоколов. Инцидент может иметь прецедентное значение для правоприменения в отношении DAO.",
+      "post_text": "🇺🇸 Arbitrum DAO проголосовал за разблокировку $71 млн в ETH — пока в Манхэттене идёт суд за те же активы.\n\nДелегаты одобрили высвобождение 30 765 ETH (>90% голосов), замороженных после эксплойта rsETH 18 апреля, связанного с Lazarus Group. Средства должны пойти на компенсацию пострадавшим пользователям через recovery-пул под управлением Aave, KelpDAO, LayerZero, EtherFi и Compound.\n\n⚠️ <b>На что обратить внимание:</b>\n— Семьи, имеющие судебные решения против КНДР на $877 млн, через своего адвоката наложили restraining notice на DAO, заявив, что ETH — собственность Северной Кореи\n— Aave оспаривает это в суде, предупреждая о риске «каскадных ликвидаций» по всему DeFi\n— Атака квалифицируется противоположными сторонами по-разному: кража vs. мошенничество — и это прямо влияет на вопрос о правовом титуле\n— Перевод средств невозможен минимум 8 дней (Constitutional AIP), суд может вмешаться\n— Предложение включало indemnification-защиту для Foundation, Offchain Labs, Security Council и делегатов\n\nКейс ставит практический вопрос, которого compliance-команды давно избегали: кто несёт ответственность за исполнение судебных предписаний, направленных на децентрализованный протокол, и какова юрисдикция US-судов над on-chain активами без чёткого владельца.\n\nПодробнее в <a href=\"https://www.coindesk.com/markets/2026/05/08/arbitrum-approves-usd71-million-eth-release-despite-u-s-seizure-fight\">материале CoinDesk</a>.\n\n#crypto #DAOgovernance #sanctions #AML 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169524+00:00"
+    },
+    {
+      "url": "https://www.coindesk.com/policy/2026/05/08/stablecoins-have-their-permission-slip-now-comes-the-hard-part",
+      "headline": "US stablecoin legislation advances — industry faces implementation challenges",
+      "summary": "После получения законодательного «разрешения» в США индустрия стейблкоинов столкнулась с практическими трудностями внедрения нормативных требований. Статья анализирует, что означает принятие закона о стейблкоинах для эмитентов, банков и платёжных операторов. Регуляторная определённость открывает новые возможности, но ставит серьёзные комплаенс-задачи.",
+      "post_text": "🇺🇸 GENIUS Act — это «разрешение» выйти на рынок стейблкоинов. Но что дальше?\n\nЗакон принят, регуляторная рамка появилась — и именно сейчас для эмитентов, банков и платёжных операторов начинается по-настоящему сложная часть.\n\n📌 <b>Что говорят в индустрии:</b>\n— MoonPay: GENIUS Act дал традиционным финансовым игрокам чёткий сигнал для входа в стейблкоины, ускорив институциональный интерес\n— Ripple: институциональные клиенты требуют регулируемых продуктов, надёжного кастоди и понятной утилиты — не просто капитализации\n— Paxos: публичные блокчейны пока не решают проблему приватности транзакций — частичная анонимность недостаточна при переходах между закрытой и откррытой средой\n— B2B-платежи уже работают как use case, потребительское применение (аренда, ежедневные покупки) остаётся нерешённой задачей\n— Доля стейблкоинов в глобальных денежных переводах пока мала; оценочный ориентир — около 10% в течение пяти лет\n\nДля compliance-команд это прямой сигнал: регуляторная определённость снизила барьер входа, но операционные требования — по инфраструктуре, приватности данных и дистрибуции — теперь становятся ключевым фильтром для лицензируемых эмитентов и партнёрских платёжных цепочек.\n\nПодробнее в <a href=\"https://www.coindesk.com/policy/2026/05/08/stablecoins-have-their-permission-slip-now-comes-the-hard-part\">материале CoinDesk</a>.\n\n#stablecoins #payments #GENIUS #crypto 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T17:28:13.169534+00:00"
+    },
+    {
+      "url": "https://www.fca.org.uk/news/press-releases/convicted-money-launderer-sentenced-extra-prison-time",
+      "headline": "FCA money launderer jailed extra 499 days for failing to pay £529k confiscation order",
+      "summary": "Ричард Фейтфулл, осуждённый в 2021 году за отмывание £2,5 млн в рамках транснациональной преступной группы, приговорён к дополнительным 499 дням лишения свободы. Причина — неполная уплата по конфискационному ордеру: из £529 961 он выплатил лишь £349 214. Уголовное преследование было инициировано Управлением по финансовому регулированию и надзору Великобритании (FCA).",
+      "post_text": "🇬🇧 Неуплата по конфискационному ордеру обошлась осуждённому отмывателю денег дополнительными 499 днями заключения.\n\nРичард Фейтфулл, осуждённый в 2021 году за отмывание £2,5 млн в составе транснациональной ОПГ, был освобождён в июне 2025-го — но уже 8 мая вернулся за решётку. Из положенных £529 961 по конфискационному ордеру он выплатил лишь £349 214.\n\n📌 <b>Детали дела:</b>\n— Схема охватывала не менее 7 зарубежных инвестиционных мошенничеств (boiler room fraud)\n— Конфискационный ордер оформлен в июле 2023 года, позднее скорректирован в меньшую сторону\n— Остаток долга продолжает накапливать проценты — £39,62 в день\n— Даже после отбытия дополнительного срока задолженность сохраняется\n— Взысканные средства направятся на компенсацию жертвам\n\nДля compliance-команд это наглядное напоминание: конфискационные ордера в Великобритании — не формальность. FCA активно сопровождает исполнение судебных решений, а уклонение от выплат влечёт реальное лишение свободы даже после основного срока.\n\nПодробнее в <a href=\"https://www.fca.org.uk/news/press-releases/convicted-money-launderer-sentenced-extra-prison-time\">пресс-релизе FCA</a>.\n\n#aml #enforcement #confiscation 🇬🇧",
+      "category": "aml",
+      "jurisdiction": "UK",
+      "importance": 3,
+      "posted_at": "2026-05-08T17:28:13.169541+00:00"
+    },
+    {
+      "url": "https://cointelegraph.com/news/aws-data-center-overheating-impacting-coinbase-others?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "headline": "AWS data center outage forces Coinbase into 'cancel only' trading mode",
+      "summary": "Перегрев дата-центра AWS в Северной Вирджинии привёл к сбою на платформе Coinbase: торги были переведены в режим «только отмена». Coinbase сообщила о намерении восстановить торговлю в ближайшее время. Инцидент поднимает вопросы операционной устойчивости крупнейших криптобирж.",
+      "post_text": "🇺🇸 Перегрев дата-центра AWS вывел Coinbase в режим «только отмена» — без возможности открывать новые позиции.\n\nВ пятницу дата-центр Amazon Web Services в Северной Вирджинии (регион US-EAST-1, зона use1-az4) зафиксировал рост температуры, что повлекло потерю питания на части оборудования. Coinbase перевела все рынки в <b>«Cancel Only» mode</b>: клиенты могли только отменять существующие ордера. Среди пострадавших — также FanDuel и ряд других платформ.\n\n⚠️ <b>На что обратить внимание:</b>\n— AWS подтвердила «ранние признаки восстановления» и переключение трафика с затронутой зоны\n— Coinbase сообщила о деградации производительности на веб и мобильных клиентах\n— Средства клиентов, по заявлению биржи, не пострадали\n— Восстановление торгов анонсировано как поэтапное: сначала «Cancel Only», затем полное включение\n\nДля compliance-команд и операционных подразделений криптобирж инцидент — очередное напоминание: концентрация инфраструктуры на одном облачном провайдере создаёт реальный операционный риск, который регуляторы (особенно в контексте DORA и аналогичных требований к устойчивости) всё активнее включают в надзорные ожидания.\n\nПодробнее в <a href=\"https://cointelegraph.com/news/aws-data-center-overheating-impacting-coinbase-others\">материале Cointelegraph</a> и <a href=\"https://www.theblock.co/post/400536/coinbase-resumes-trading-after-aws-linked-disruption\">репортаже The Block</a>.\n\n#crypto #operationalresilience 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 3,
+      "posted_at": "2026-05-08T17:28:13.169548+00:00"
     }
   ],
   "last_digest_morning": "2026-05-08",
-  "last_digest_evening": "2026-05-07",
+  "last_digest_evening": "2026-05-08",
   "last_weekly": ""
 }
