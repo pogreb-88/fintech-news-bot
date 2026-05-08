@@ -251,6 +251,15 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-08T17:28:13.169545+00:00"
+    },
+    {
+      "hash": "efea3d0f5f7bc31f",
+      "url": "https://decrypt.co/367299/kraken-parent-payward-applies-occ-national-trust-bank-charter",
+      "headline": "Kraken Parent Payward Applies for OCC National Trust Bank Charter",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T19:54:03.104284+00:00"
     }
   ],
   "weekly_buffer": [
@@ -524,6 +533,16 @@
       "jurisdiction": "US",
       "importance": 3,
       "posted_at": "2026-05-08T17:28:13.169548+00:00"
+    },
+    {
+      "url": "https://decrypt.co/367299/kraken-parent-payward-applies-occ-national-trust-bank-charter",
+      "headline": "Kraken Parent Payward Applies for OCC National Trust Bank Charter",
+      "summary": "Материнская компания криптобиржи Kraken — Payward — подала заявку на получение федеральной банковской лицензии типа National Trust Bank через OCC. Это дополнит уже существующую дочернюю структуру Kraken в Вайоминге (SPDI). Получение федеральной лицензии позволит бирже расширить спектр банковских услуг на территории всех США.",
+      "post_text": "🇺🇸 Kraken хочет стать федеральным банком — и подал заявку в OCC.\n\nМатеринская компания биржи Payward обратилась в Office of the Comptroller of the Currency за лицензией National Trust Bank. Это федеральный уровень: в отличие от уже действующей SPDI-структуры в Вайоминге, новая лицензия даст возможность работать во всех штатах без необходимости получать отдельные разрешения на уровне каждого из них.\n\n⚠️ <b>На что обратить внимание:</b>\n— OCC National Trust Charter — один из немногих путей к полноценному федеральному банковскому статусу для крипто-компании\n— Параллельное существование SPDI и федеральной лицензии создаёт двухуровневую регуляторную структуру\n— Процесс одобрения OCC исторически длителен и сопряжён с детальным AML/BSA due diligence\n— Coinbase и Ripple ранее также предпринимали аналогичные шаги в направлении банковской лицензии\n\nДля compliance-команд в крипто-сегменте это сигнал: регуляторный вектор в США смещается в сторону интеграции VASP в традиционную банковскую систему со всеми вытекающими требованиями — от капитальных стандартов до расширенного BSA/AML-контроля.\n\nПодробнее в <a href=\"https://decrypt.co/367299/kraken-parent-payward-applies-occ-national-trust-bank-charter\">материале Decrypt</a> и <a href=\"https://www.theblock.co/post/400592/kraken-parent-payward-applies-national-occ-trust-charter-ripple-coinbase\">репортаже The Block</a>.\n\n#crypto #banking #VASP #OCC 🇺🇸",
+      "category": "crypto",
+      "jurisdiction": "US",
+      "importance": 4,
+      "posted_at": "2026-05-08T19:54:03.104311+00:00"
     }
   ],
   "last_digest_morning": "2026-05-08",
