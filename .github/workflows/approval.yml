@@ -1,19 +1,8 @@
-name: digest
+name: approval
 
 on:
   schedule:
-    # Morning Prague window (09:00-11:00 CEST = 07:00-09:00 UTC) — every 30 min
-    - cron: "0 7 * * *"
-    - cron: "30 7 * * *"
-    - cron: "0 8 * * *"
-    - cron: "30 8 * * *"
-    - cron: "0 9 * * *"
-    # Evening Prague window (17:00-19:00 CEST = 15:00-17:00 UTC) — every 30 min
-    - cron: "0 15 * * *"
-    - cron: "30 15 * * *"
-    - cron: "0 16 * * *"
-    - cron: "30 16 * * *"
-    - cron: "0 17 * * *"
+    - cron: "*/15 * * * *"  # poll every 15 min
   workflow_dispatch: {}
 
 permissions:
@@ -39,18 +28,18 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Run digest
+      - name: Poll for approvals
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python -m src.main digest
+        run: python -m src.main approve
 
       - name: Commit state
         run: |
           git config user.name "fintech-news-bot"
           git config user.email "bot@users.noreply.github.com"
           git add data/state.json
-          git diff --staged --quiet || git commit -m "state: digest run"
+          git diff --staged --quiet || git commit -m "state: approval poll"
           git push

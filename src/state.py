@@ -27,6 +27,9 @@ def _blank() -> dict:
     return {
         "posted": [],
         "weekly_buffer": [],
+        "pending": [],               # drafts awaiting owner approval
+        "tg_update_offset": 0,       # for getUpdates long-polling
+        "owner_chat_id": None,       # captured on /start with bot
         "last_digest_morning": "",   # YYYY-MM-DD of last morning run (Prague date)
         "last_digest_evening": "",   # YYYY-MM-DD of last evening run
         "last_weekly": "",           # ISO week id like 2026-W19
@@ -44,8 +47,13 @@ def url_hash(url: str) -> str:
 
 
 def is_seen(state: dict, url: str) -> bool:
+    """True if url was already posted OR is currently in pending approval queue."""
     h = url_hash(url)
-    return any(p["hash"] == h for p in state["posted"])
+    if any(p["hash"] == h for p in state["posted"]):
+        return True
+    if any(p.get("original_url") == url for p in state.get("pending", [])):
+        return True
+    return False
 
 
 def mark_posted(state: dict, item: dict) -> None:

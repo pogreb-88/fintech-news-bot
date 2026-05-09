@@ -1,9 +1,10 @@
 """
-Entry point. Three modes:
+Entry point. Modes:
 
-  python -m src.main digest    — slot-aware (morning/evening), random target time
-  python -m src.main breaking  — fetch last 90min, post only importance>=4
-  python -m src.main weekly    — Monday-morning previous-week recap
+  python -m src.main digest    — slot-aware (morning/evening), drafts → owner DM
+  python -m src.main breaking  — fetch last 90min, drafts → owner DM (importance>=4)
+  python -m src.main weekly    — Monday-morning previous-week recap → owner DM
+  python -m src.main approve   — poll for owner button clicks / edit replies
 """
 import argparse
 import logging
@@ -12,7 +13,10 @@ import sys
 
 from dotenv import load_dotenv
 
-from . import article, classifier, fetcher, poster, scheduler, state, verifier, weekly, writer
+from . import (
+    approver, article, classifier, fetcher, proposer, scheduler, state,
+    verifier, weekly, writer,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -33,8 +37,19 @@ def _check_env() -> None:
             os.environ[k] = trimmed
 
 
+def _check_owner_known(state_obj: dict) -> bool:
+    chat_id = proposer.owner_chat_id(state_obj)
+    if not chat_id:
+        log.error(
+            "Owner chat_id is unknown. Send /start to the bot in private DM, "
+            "then the next 'approve' run will register it. Or set "
+            "TELEGRAM_OWNER_CHAT_ID secret with a numeric chat_id."
+        )
+        return False
+    return True
+
+
 def _write_posts(verified_items: list[dict]) -> list[dict]:
-    """Stage 2: fetch article body + run writer for each item."""
     out: list[dict] = []
     for it in verified_items:
         body = article.fetch(it["url"])
@@ -45,6 +60,34 @@ def _write_posts(verified_items: list[dict]) -> list[dict]:
             continue
         out.append({**it, "post_text": post_text})
     return out
+
+
+def _run_pipeline(st: dict, max_age_hours: int, top_n: int | None,
+                   min_importance: int = 0) -> list[dict]:
+    raw = fetcher.fetch_all(max_age_hours=max_age_hours)
+    raw = [it for it in raw if not state.is_seen(st, it["url"])]
+    log.info("After dedup: %d new items", len(raw))
+    if not raw:
+        return []
+
+    classified = classifier.classify(raw)
+    if min_importance:
+        classified = [it for it in classified
+                      if int(it.get("importance", 0)) >= min_importance]
+    if not classified:
+        return []
+
+    verified_items = verifier.verify(classified)
+    if not verified_items:
+        return []
+
+    verified_items.sort(
+        key=lambda it: (-int(it.get("importance", 0)), it.get("category", "")),
+    )
+    if top_n:
+        verified_items = verified_items[:top_n]
+
+    return _write_posts(verified_items)
 
 
 def run_digest(force: bool = False, max_age_hours: int = 12, top_n: int = 5) -> None:
@@ -63,73 +106,32 @@ def run_digest(force: bool = False, max_age_hours: int = 12, top_n: int = 5) -> 
         log.info("Active slot: %s", slot)
     else:
         slot = None
-        log.info("Forced run (workflow_dispatch or local) — bypassing slot logic")
 
-    raw = fetcher.fetch_all(max_age_hours=max_age_hours)
-    raw = [it for it in raw if not state.is_seen(st, it["url"])]
-    log.info("After dedup: %d new items", len(raw))
-    if not raw:
-        if slot:
-            scheduler.mark_ran(st, slot)
+    if not _check_owner_known(st):
         state.save_state(st)
         return
 
-    classified = classifier.classify(raw)
-    if not classified:
-        if slot:
-            scheduler.mark_ran(st, slot)
-        state.save_state(st)
-        return
+    written = _run_pipeline(st, max_age_hours=max_age_hours, top_n=top_n)
+    proposer.send_items_for_approval(st, written, kind="digest")
 
-    verified_items = verifier.verify(classified)
-    if not verified_items:
-        if slot:
-            scheduler.mark_ran(st, slot)
-        state.save_state(st)
-        return
-
-    verified_items.sort(
-        key=lambda it: (-int(it.get("importance", 0)), it.get("category", "")),
-    )
-    selected = verified_items[:top_n]
-
-    written = _write_posts(selected)
-    sent = poster.post_items(written)
-    for it in sent:
-        state.mark_posted(st, it)
     if slot:
         scheduler.mark_ran(st, slot)
     state.prune(st)
     state.save_state(st)
-    log.info("Digest: posted %d items", len(sent))
 
 
 def run_breaking(max_age_hours: int = 2, min_importance: int = 4) -> None:
     st = state.load_state()
-    raw = fetcher.fetch_all(max_age_hours=max_age_hours)
-    raw = [it for it in raw if not state.is_seen(st, it["url"])]
-    if not raw:
+    if not _check_owner_known(st):
         state.save_state(st)
         return
 
-    classified = classifier.classify(raw)
-    classified = [it for it in classified if int(it.get("importance", 0)) >= min_importance]
-    if not classified:
-        state.save_state(st)
-        return
+    written = _run_pipeline(st, max_age_hours=max_age_hours,
+                              top_n=None, min_importance=min_importance)
+    proposer.send_items_for_approval(st, written, kind="breaking")
 
-    verified_items = verifier.verify(classified)
-    if not verified_items:
-        state.save_state(st)
-        return
-
-    written = _write_posts(verified_items)
-    sent = poster.post_items(written)
-    for it in sent:
-        state.mark_posted(st, it)
     state.prune(st)
     state.save_state(st)
-    log.info("Breaking: posted %d items", len(sent))
 
 
 def run_weekly(force: bool = False) -> None:
@@ -145,6 +147,10 @@ def run_weekly(force: bool = False) -> None:
             state.save_state(st)
             return
 
+    if not _check_owner_known(st):
+        state.save_state(st)
+        return
+
     items = state.previous_week_items(st)
     if not items:
         log.info("Weekly: no items for previous week, skipping")
@@ -158,9 +164,16 @@ def run_weekly(force: bool = False) -> None:
         state.save_state(st)
         return
 
-    if poster.send_message(text):
-        log.info("Weekly digest posted (%d items recapped)", len(items))
+    proposer.send_for_approval(st, text, sources=[], original_url="weekly", kind="weekly")
     scheduler.mark_ran(st, "weekly_monday")
+    state.save_state(st)
+
+
+def run_approve() -> None:
+    """Poll Telegram for callbacks/replies and process them."""
+    st = state.load_state()
+    approver.poll(st)
+    state.prune(st)
     state.save_state(st)
 
 
@@ -169,12 +182,10 @@ def main() -> None:
     _check_env()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=["digest", "breaking", "weekly"])
-    parser.add_argument("--force", action="store_true",
-                        help="Bypass slot timing checks (for manual runs)")
+    parser.add_argument("mode", choices=["digest", "breaking", "weekly", "approve"])
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
-    # workflow_dispatch sets GITHUB_EVENT_NAME=workflow_dispatch — auto-force in that case
     auto_force = os.environ.get("GITHUB_EVENT_NAME") == "workflow_dispatch"
     force = args.force or auto_force
 
@@ -184,6 +195,8 @@ def main() -> None:
         run_breaking()
     elif args.mode == "weekly":
         run_weekly(force=force)
+    elif args.mode == "approve":
+        run_approve()
 
 
 if __name__ == "__main__":
