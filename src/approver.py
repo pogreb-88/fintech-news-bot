@@ -18,6 +18,16 @@ def _strip_keyboard(chat_id, message_id):
     telegram_api.edit_message_reply_markup(chat_id, message_id, None)
 
 
+def _ack(cb_id, chat_id, fallback_text: str, toast: str | None = None) -> None:
+    """Try answerCallbackQuery (toast). If it fails (e.g. >30s old query),
+    send a regular DM message so the owner sees feedback anyway."""
+    if toast is None:
+        toast = fallback_text
+    answered = telegram_api.answer_callback_query(cb_id, toast)
+    if not answered:
+        telegram_api.send_message(chat_id, fallback_text)
+
+
 def _publish_and_record(state: dict, p: dict, post_text: str) -> bool:
     """Send to channel; on success, mark as posted in state."""
     if not poster.send_message(post_text):
@@ -79,40 +89,38 @@ def _handle_callback(state: dict, cb: dict) -> None:
     action, pid = data.split(":", 1)
     p = pending.find_by_id(state, pid)
     if not p:
-        telegram_api.answer_callback_query(cb_id, "Черновик уже обработан или истёк")
+        _ack(cb_id, chat_id, "Черновик уже обработан или истёк")
         _strip_keyboard(chat_id, msg_id)
         return
 
     if action == "pub":
         if _publish_and_record(state, p, p["post_text"]):
-            telegram_api.answer_callback_query(cb_id, "Опубликовано")
             telegram_api.edit_message_text(
                 chat_id, msg_id, original_text + "\n\n— ✅ опубликовано —",
+                reply_markup={"inline_keyboard": []},
             )
+            _ack(cb_id, chat_id, "✅ Пост опубликован в канал")
             pending.remove(state, pid)
         else:
-            telegram_api.answer_callback_query(
-                cb_id, "Ошибка отправки в канал. Попробуй ещё раз.", show_alert=True,
-            )
+            _ack(cb_id, chat_id,
+                 "❌ Ошибка отправки в канал — попробуй ещё раз клик.")
 
     elif action == "skip":
-        telegram_api.answer_callback_query(cb_id, "Пропущено")
         telegram_api.edit_message_text(
             chat_id, msg_id, original_text + "\n\n— ❌ пропущено —",
+            reply_markup={"inline_keyboard": []},
         )
+        _ack(cb_id, chat_id, "❌ Черновик пропущен")
         pending.remove(state, pid)
 
     elif action == "edit":
         pending.set_status(state, pid, "awaiting_edit")
-        telegram_api.answer_callback_query(cb_id, "Жду исправленный текст")
-        telegram_api.send_message(
-            chat_id,
-            "Пришли исправленную версию <b>ответом</b> (reply) на черновик выше.",
-            reply_to_message_id=msg_id,
-        )
+        _ack(cb_id, chat_id,
+             "✏️ Пришли исправленную версию <b>ответом</b> (reply) на черновик выше.",
+             toast="Жду исправленный текст")
 
     else:
-        telegram_api.answer_callback_query(cb_id, "Неизвестное действие")
+        _ack(cb_id, chat_id, "Неизвестное действие")
 
 
 def _handle_message(state: dict, msg: dict) -> None:
