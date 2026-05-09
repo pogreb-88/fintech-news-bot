@@ -113,12 +113,6 @@ def _handle_callback(state: dict, cb: dict) -> None:
         _ack(cb_id, chat_id, "❌ Черновик пропущен")
         pending.remove(state, pid)
 
-    elif action == "edit":
-        pending.set_status(state, pid, "awaiting_edit")
-        _ack(cb_id, chat_id,
-             "✏️ Пришли исправленную версию <b>ответом</b> (reply) на черновик выше.",
-             toast="Жду исправленный текст")
-
     else:
         _ack(cb_id, chat_id, "Неизвестное действие")
 
@@ -139,13 +133,13 @@ def _handle_message(state: dict, msg: dict) -> None:
         )
         return
 
-    # Edit reply
+    # Reply to a draft = edit and publish
     reply_to = msg.get("reply_to_message")
     if not reply_to:
         return
 
     p = pending.find_by_message_id(state, reply_to["message_id"])
-    if not p or p.get("status") != "awaiting_edit":
+    if not p:
         return
 
     edited = msg.get("text", "")
@@ -157,9 +151,14 @@ def _handle_message(state: dict, msg: dict) -> None:
             chat_id, "✅ Опубликована твоя версия",
             reply_to_message_id=msg["message_id"],
         )
+        # Strip keyboard from original draft message
+        if p.get("tg_message_id"):
+            telegram_api.edit_message_reply_markup(
+                chat_id, p["tg_message_id"], None,
+            )
         pending.remove(state, p["id"])
     else:
         telegram_api.send_message(
-            chat_id, "Ошибка публикации в канал — проверь HTML-разметку и пришли ещё раз.",
+            chat_id, "❌ Ошибка публикации — проверь HTML-разметку и пришли ещё раз.",
             reply_to_message_id=msg["message_id"],
         )

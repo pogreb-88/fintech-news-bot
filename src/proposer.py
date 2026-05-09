@@ -14,11 +14,16 @@ def owner_chat_id(state: dict) -> int | None:
     return state.get("owner_chat_id")
 
 
+FOOTER = (
+    "\n\n<i>Чтобы изменить — просто ответь reply'ем на это сообщение "
+    "со своей версией текста. Опубликуется через ≤15 мин.</i>"
+)
+
+
 def _keyboard(pid: str) -> dict:
     return {
         "inline_keyboard": [[
             {"text": "✅ Опубликовать", "callback_data": f"pub:{pid}"},
-            {"text": "✏️ Изменить", "callback_data": f"edit:{pid}"},
             {"text": "❌ Пропустить", "callback_data": f"skip:{pid}"},
         ]]
     }
@@ -36,7 +41,8 @@ def send_for_approval(state: dict, post_text: str,
 
     pid = pending.add(state, post_text, sources or [], original_url, kind=kind)
     res = telegram_api.send_message(
-        chat_id, post_text, reply_markup=_keyboard(pid), disable_preview=False,
+        chat_id, post_text + FOOTER,
+        reply_markup=_keyboard(pid), disable_preview=False,
     )
     if not res:
         pending.remove(state, pid)
