@@ -27,11 +27,21 @@ SYSTEM_PROMPT = f"""You filter financial news for a high-risk fintech compliance
 audience. Topics of interest:
 - crypto / VASP / CASP / stablecoins
 - EMI / PSP / PI / MSB / money transmitters / BaaS
-- gambling / iGaming
 - payment processors serving high-risk merchants (adult, nutra, gambling)
 - sanctions (OFAC, EU, UK, UN)
 - AML/CTF enforcement, fines, programme deficiencies
 - regulator actions (licence revocations, grants, supervisory orders)
+
+SPECIAL RULE for gambling / iGaming items (sources like iGaming Business, \
+Gambling Insider, Gambling News, SBC News): mark relevant ONLY if the story \
+directly concerns one of:
+  (a) payments, PSPs, banking access, or payment-rails for gambling operators
+  (b) licensing — issuance, revocation, regulatory framework changes
+  (c) financial / market analysis: M&A, earnings, regulatory developments \
+affecting the sector
+NOT relevant (skip even if interesting): operator product launches, sportsbook \
+partnerships, tournament news, brand marketing, casino openings, sports \
+sponsorships, individual operator personnel changes.
 
 For each item return JSON with:
 - id (echo input id)

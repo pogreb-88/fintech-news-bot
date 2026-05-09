@@ -54,6 +54,26 @@ SOURCES = [
         "weight": 2,
     },
 
+    # === General fintech press ===
+    {
+        "name": "BBC Fintech",
+        "url": "https://feeds.bbci.co.uk/news/topics/c5ggrnqz6w9t/rss.xml",
+        "type": "press",
+        "weight": 2,
+    },
+    {
+        "name": "FT Fintech",
+        "url": "https://www.ft.com/fintech?format=rss",
+        "type": "press",
+        "weight": 3,
+    },
+    {
+        "name": "TechCrunch Fintech",
+        "url": "https://techcrunch.com/category/fintech/feed/",
+        "type": "press",
+        "weight": 2,
+    },
+
     # === Crypto press ===
     {
         "name": "CoinDesk",
@@ -100,7 +120,7 @@ SOURCES = [
         "weight": 1,
     },
 
-    # === Gambling / iGaming ===
+    # === Gambling / iGaming (filtered: only payments/licensing/financial) ===
     {
         "name": "iGaming Business",
         "url": "https://igamingbusiness.com/feed/",
@@ -113,6 +133,18 @@ SOURCES = [
         "type": "industry",
         "weight": 1,
     },
+    {
+        "name": "Gambling Insider",
+        "url": "https://www.gamblinginsider.com/feed",
+        "type": "industry",
+        "weight": 1,
+    },
+    {
+        "name": "Gambling News",
+        "url": "https://www.gamblingnews.com/feed/",
+        "type": "industry",
+        "weight": 1,
+    },
 
     # === AML / Compliance ===
     {
@@ -120,6 +152,12 @@ SOURCES = [
         "url": "https://www.amlintelligence.com/feed/",
         "type": "industry",
         "weight": 2,
+    },
+    {
+        "name": "AML Watcher",
+        "url": "https://amlwatcher.com/news/feed/",
+        "type": "industry",
+        "weight": 1,
     },
 ]
 
@@ -130,6 +168,8 @@ SOURCES = [
 # - DFSA (DIFC)
 # - CySEC announcements
 # - MFSA news
+# - Forbes.ru fintech tag (https://www.forbes.ru/tegi/finteh) — no RSS
+# - ACAMS news (https://www.acams.org/en/news) — no RSS
 
 
 def domain_of(source_name: str, url: str) -> str:
