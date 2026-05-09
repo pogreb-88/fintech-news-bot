@@ -10,9 +10,6 @@ on:
     - cron: "0 9 * * 1"
   workflow_dispatch: {}
 
-permissions:
-  contents: write
-
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -25,6 +22,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Restore state cache
+        uses: actions/cache/restore@v4
+        with:
+          path: data/state.json
+          key: state-${{ github.run_id }}
+          restore-keys: |
+            state-
 
       - uses: actions/setup-python@v5
         with:
@@ -41,10 +46,9 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python -m src.main weekly
 
-      - name: Commit state
-        run: |
-          git config user.name "fintech-news-bot"
-          git config user.email "bot@users.noreply.github.com"
-          git add data/state.json
-          git diff --staged --quiet || git commit -m "state: weekly run"
-          git push
+      - name: Save state cache
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: data/state.json
+          key: state-${{ github.run_id }}
