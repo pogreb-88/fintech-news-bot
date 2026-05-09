@@ -34,9 +34,13 @@ def _publish_and_record(state: dict, p: dict, post_text: str) -> bool:
 
 def poll(state: dict) -> None:
     offset = int(state.get("tg_update_offset", 0))
+    log.info("poll start: offset=%d, pending_count=%d, owner_chat_id=%s",
+             offset, len(state.get("pending", [])), state.get("owner_chat_id"))
     updates = telegram_api.get_updates(offset)
+    log.info("got %d updates", len(updates))
 
     for u in updates:
+        log.info("update %s: keys=%s", u.get("update_id"), list(u.keys()))
         offset = max(offset, u["update_id"] + 1)
         try:
             if "callback_query" in u:
@@ -50,11 +54,20 @@ def poll(state: dict) -> None:
     expired = pending.expire(state)
     if expired:
         log.info("Expired %d pending drafts past TTL", expired)
+    log.info("poll end: new_offset=%d, pending_count=%d",
+             offset, len(state.get("pending", [])))
 
 
 def _handle_callback(state: dict, cb: dict) -> None:
+    log.info("callback: data=%r id=%s has_message=%s",
+             cb.get("data"), cb.get("id"), "message" in cb)
     data = cb.get("data", "")
     cb_id = cb["id"]
+    if "message" not in cb:
+        log.warning("callback has no message field, cannot answer with edit; "
+                    "answering inline")
+        telegram_api.answer_callback_query(cb_id, "Callback из устаревшего сообщения")
+        return
     chat_id = cb["message"]["chat"]["id"]
     msg_id = cb["message"]["message_id"]
     original_text = cb["message"].get("text") or ""
