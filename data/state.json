@@ -547,5 +547,8 @@
   ],
   "last_digest_morning": "2026-05-08",
   "last_digest_evening": "2026-05-08",
-  "last_weekly": ""
+  "last_weekly": "",
+  "pending": [],
+  "tg_update_offset": 696127111,
+  "owner_chat_id": 549484849
 }
