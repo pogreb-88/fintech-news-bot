@@ -117,10 +117,32 @@ def _handle_message(state: dict, msg: dict) -> None:
         state["owner_chat_id"] = chat_id
         telegram_api.send_message(
             chat_id,
-            "Привет! Этот бот будет присылать черновики постов сюда. "
-            "Кнопками внизу каждого черновика — ✅ опубликовать / ✏️ изменить / "
-            "❌ пропустить. Для редактирования: после ✏️ ответь reply'ем "
-            "с правленым текстом.",
+            "Привет! Бот будет присылать черновики постов сюда. "
+            "Кнопки внизу каждого: ✅ опубликовать / ❌ пропустить. "
+            "Чтобы изменить — ответь reply'ем на черновик."
+        )
+        return
+
+    # /reset: wipe pending queue (use when old zombie drafts pile up)
+    if text.startswith("/reset"):
+        n = len(state.get("pending", []))
+        state["pending"] = []
+        telegram_api.send_message(
+            chat_id, f"♻️ Очередь черновиков очищена (было {n}).",
+        )
+        return
+
+    # /status: show current state
+    if text.startswith("/status"):
+        n_pending = len(state.get("pending", []))
+        n_posted = len(state.get("posted", []))
+        offset = state.get("tg_update_offset", 0)
+        telegram_api.send_message(
+            chat_id,
+            f"📊 <b>State</b>\n"
+            f"Pending: {n_pending}\n"
+            f"Posted (history): {n_posted}\n"
+            f"TG offset: {offset}",
         )
         return
 
