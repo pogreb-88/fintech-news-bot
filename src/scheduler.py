@@ -1,79 +1,22 @@
 """
-Slot-based randomized scheduling.
+Slot-based scheduling.
 
-GitHub cron has no timezone support and no native randomness. Approach:
-1. Workflow fires multiple times within a UTC window (e.g. every 30 min for 2h).
-2. Each fire, we ask: is it time to run today's slot?
-   - target_offset = deterministic random in [0, window_minutes], seeded by date+slot
-   - run if (now >= window_start + target_offset) AND (today not yet run for this slot)
+GitHub Actions scheduled workflows are unreliable — cron triggers can be
+delayed 1-3 hours during high-load periods. We compensate by:
+1. Multiple cron triggers per slot (more shots on goal).
+2. Wide slot windows (any fire within the window triggers a run).
+3. Once-per-day dedup via state.last_digest_{morning,evening}.
 
-This produces ≤1 run per slot per day, at a different time each day.
+Slot windows (UTC) — chosen so Prague-time daylight hours are covered:
+  morning : 06:00 - 13:00 UTC   (08:00-15:00 Prague summer)
+  evening : 14:00 - 21:00 UTC   (16:00-23:00 Prague summer)
+  weekly  : Monday 06:00 - 13:00 UTC
 """
-import random
-from datetime import date, datetime, time, timedelta, timezone
-
-# All windows in UTC. Adjust here if you want to anchor differently.
-SLOTS = {
-    "morning": {
-        "window_start": time(7, 0),     # 09:00 Prague summer / 08:00 winter
-        "window_minutes": 120,
-        "state_key": "last_digest_morning",
-    },
-    "evening": {
-        "window_start": time(15, 0),    # 17:00 Prague summer / 16:00 winter
-        "window_minutes": 120,
-        "state_key": "last_digest_evening",
-    },
-    "weekly_monday": {
-        "window_start": time(7, 0),     # Monday 09:00 Prague summer
-        "window_minutes": 120,
-        "state_key": "last_weekly",
-        "weekday": 0,                    # Monday only
-    },
-}
+from datetime import date, datetime, timezone
 
 
-def _today_seed(slot: str) -> int:
-    return int(date.today().isoformat().replace("-", "")) * 100 + hash(slot) % 100
-
-
-def _target_offset_minutes(slot: str, window_minutes: int) -> int:
-    rng = random.Random(_today_seed(slot))
-    return rng.randint(0, window_minutes)
-
-
-def in_active_slot(slot: str, now: datetime | None = None) -> bool:
-    """Return True if it's time to run this slot (window passed target offset)."""
-    cfg = SLOTS[slot]
-    now = now or datetime.now(timezone.utc)
-
-    # Weekly: only on configured weekday
-    weekday = cfg.get("weekday")
-    if weekday is not None and now.weekday() != weekday:
-        return False
-
-    window_start = datetime.combine(now.date(), cfg["window_start"], tzinfo=timezone.utc)
-    target = window_start + timedelta(minutes=_target_offset_minutes(slot, cfg["window_minutes"]))
-    window_end = window_start + timedelta(minutes=cfg["window_minutes"] + 30)
-
-    return target <= now <= window_end
-
-
-def already_ran_today(state: dict, slot: str) -> bool:
-    cfg = SLOTS[slot]
-    last = state.get(cfg["state_key"], "")
-    if slot == "weekly_monday":
-        # Mark by ISO week
-        return last == _iso_week_id(date.today())
-    return last == date.today().isoformat()
-
-
-def mark_ran(state: dict, slot: str) -> None:
-    cfg = SLOTS[slot]
-    if slot == "weekly_monday":
-        state[cfg["state_key"]] = _iso_week_id(date.today())
-    else:
-        state[cfg["state_key"]] = date.today().isoformat()
+def _today() -> date:
+    return date.today()
 
 
 def _iso_week_id(d: date) -> str:
@@ -82,10 +25,31 @@ def _iso_week_id(d: date) -> str:
 
 
 def determine_digest_slot(now: datetime | None = None) -> str | None:
-    """Return 'morning' or 'evening' if currently active, else None."""
     now = now or datetime.now(timezone.utc)
-    if in_active_slot("morning", now):
+    h = now.hour
+    if 6 <= h < 13:
         return "morning"
-    if in_active_slot("evening", now):
+    if 14 <= h < 21:
         return "evening"
     return None
+
+
+def in_active_slot(slot: str, now: datetime | None = None) -> bool:
+    now = now or datetime.now(timezone.utc)
+    if slot == "weekly_monday":
+        return now.weekday() == 0 and 6 <= now.hour < 13
+    return determine_digest_slot(now) == slot
+
+
+def already_ran_today(state: dict, slot: str) -> bool:
+    if slot == "weekly_monday":
+        return state.get("last_weekly", "") == _iso_week_id(_today())
+    key = "last_digest_" + slot
+    return state.get(key, "") == _today().isoformat()
+
+
+def mark_ran(state: dict, slot: str) -> None:
+    if slot == "weekly_monday":
+        state["last_weekly"] = _iso_week_id(_today())
+    else:
+        state["last_digest_" + slot] = _today().isoformat()

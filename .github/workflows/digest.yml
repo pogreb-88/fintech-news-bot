@@ -2,18 +2,15 @@ name: digest
 
 on:
   schedule:
-    # Morning Prague window (09:00-11:00 CEST = 07:00-09:00 UTC) — every 30 min
+    # Multiple cron triggers per slot — GitHub throttles, so more shots on goal.
+    # Slot windows: morning 06:00-13:00 UTC, evening 14:00-21:00 UTC.
+    # Once-per-day dedup via state.last_digest_{morning,evening}.
     - cron: "0 7 * * *"
-    - cron: "30 7 * * *"
-    - cron: "0 8 * * *"
-    - cron: "30 8 * * *"
     - cron: "0 9 * * *"
-    # Evening Prague window (17:00-19:00 CEST = 15:00-17:00 UTC) — every 30 min
+    - cron: "0 11 * * *"
     - cron: "0 15 * * *"
-    - cron: "30 15 * * *"
-    - cron: "0 16 * * *"
-    - cron: "30 16 * * *"
     - cron: "0 17 * * *"
+    - cron: "0 19 * * *"
   workflow_dispatch: {}
 
 env:

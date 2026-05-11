@@ -2,12 +2,10 @@ name: weekly
 
 on:
   schedule:
-    # Monday morning Prague (09:00-11:00 CEST = 07:00-09:00 UTC) — every 30 min
+    # Monday morning Prague (Mon 06:00-13:00 UTC). Multiple triggers — GitHub throttles.
     - cron: "0 7 * * 1"
-    - cron: "30 7 * * 1"
-    - cron: "0 8 * * 1"
-    - cron: "30 8 * * 1"
     - cron: "0 9 * * 1"
+    - cron: "0 11 * * 1"
   workflow_dispatch: {}
 
 env:
