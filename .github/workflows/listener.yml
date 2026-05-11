@@ -1,12 +1,16 @@
-name: approval
+name: listener
 
+# Long-poll loop. Each invocation runs ~25 min; cron fires every 30 min so
+# there's near-continuous coverage. Concurrency keeps only one listener at a
+# time. Public repo => unlimited Actions minutes.
 on:
   schedule:
-    - cron: "*/15 * * * *"  # poll every 15 min
+    - cron: "0,30 * * * *"
   workflow_dispatch: {}
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+  LISTENER_MAX_SECONDS: "1500"   # 25 min — exit before 30-min cron fires
 
 concurrency:
   group: bot-state
@@ -15,6 +19,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -33,13 +38,13 @@ jobs:
 
       - run: pip install -r requirements.txt
 
-      - name: Poll for approvals
+      - name: Run listener
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHANNEL_ID: ${{ secrets.TELEGRAM_CHANNEL_ID }}
           TELEGRAM_OWNER_CHAT_ID: ${{ secrets.TELEGRAM_OWNER_CHAT_ID }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python -m src.main approve
+        run: python -m src.main listen
 
       - name: Save state cache
         if: always()

@@ -14,8 +14,8 @@ import sys
 from dotenv import load_dotenv
 
 from . import (
-    approver, article, classifier, fetcher, proposer, scheduler, state,
-    verifier, weekly, writer,
+    approver, article, classifier, fetcher, listener, proposer, scheduler,
+    state, verifier, weekly, writer,
 )
 
 logging.basicConfig(
@@ -170,11 +170,16 @@ def run_weekly(force: bool = False) -> None:
 
 
 def run_approve() -> None:
-    """Poll Telegram for callbacks/replies and process them."""
+    """One-shot poll. Legacy; prefer 'listen' mode for live reactions."""
     st = state.load_state()
     approver.poll(st)
     state.prune(st)
     state.save_state(st)
+
+
+def run_listen() -> None:
+    """Long-poll loop. Processes callbacks instantly while running."""
+    listener.run_loop()
 
 
 def main() -> None:
@@ -182,7 +187,10 @@ def main() -> None:
     _check_env()
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("mode", choices=["digest", "breaking", "weekly", "approve"])
+    parser.add_argument(
+        "mode",
+        choices=["digest", "breaking", "weekly", "approve", "listen"],
+    )
     parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
@@ -197,6 +205,8 @@ def main() -> None:
         run_weekly(force=force)
     elif args.mode == "approve":
         run_approve()
+    elif args.mode == "listen":
+        run_listen()
 
 
 if __name__ == "__main__":

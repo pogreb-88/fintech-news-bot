@@ -39,13 +39,9 @@ def _publish_and_record(state: dict, p: dict, post_text: str) -> bool:
     return True
 
 
-def poll(state: dict) -> None:
+def process_updates(state: dict, updates: list[dict]) -> None:
+    """Apply a list of Telegram updates to state. Advances tg_update_offset."""
     offset = int(state.get("tg_update_offset", 0))
-    log.info("poll start: offset=%d, pending_count=%d, owner_chat_id=%s",
-             offset, len(state.get("pending", [])), state.get("owner_chat_id"))
-    updates = telegram_api.get_updates(offset)
-    log.info("got %d updates", len(updates))
-
     for u in updates:
         log.info("update %s: keys=%s", u.get("update_id"), list(u.keys()))
         offset = max(offset, u["update_id"] + 1)
@@ -56,13 +52,22 @@ def poll(state: dict) -> None:
                 _handle_message(state, u["message"])
         except Exception as e:
             log.exception("Update processing failed: %s", e)
-
     state["tg_update_offset"] = offset
     expired = pending.expire(state)
     if expired:
         log.info("Expired %d pending drafts past TTL", expired)
+
+
+def poll(state: dict) -> None:
+    """One-shot poll (legacy 'approve' mode). For continuous use, see listener.run_loop."""
+    offset = int(state.get("tg_update_offset", 0))
+    log.info("poll start: offset=%d, pending_count=%d, owner_chat_id=%s",
+             offset, len(state.get("pending", [])), state.get("owner_chat_id"))
+    updates = telegram_api.get_updates(offset)
+    log.info("got %d updates", len(updates))
+    process_updates(state, updates)
     log.info("poll end: new_offset=%d, pending_count=%d",
-             offset, len(state.get("pending", [])))
+             state.get("tg_update_offset", 0), len(state.get("pending", [])))
 
 
 def _handle_callback(state: dict, cb: dict) -> None:
